@@ -1,3 +1,5 @@
+@import './variables';
+
 .nav {
     display: flex;
     flex-direction: column;
@@ -15,7 +17,7 @@
     
     &__logo {
         display: block;
-        background: saturate($color: darken(#21262C, 3%), $amount: 10%);
+        background: saturate($color: darken(#21262C, 3%), $amount: 2%);
         padding: 0.75rem 1rem;
         border-radius: 1rem;
         margin: 0.75rem;
@@ -60,7 +62,7 @@
             justify-content: center;
             align-items: center;
             * {
-                color: rgb(255, 255, 255);
+                color: white;
                 font-size: 1rem;
             }
         }
@@ -81,7 +83,7 @@
         position: absolute;
         left: 0;
         width: 0.25rem;
-        background: var(--blue);
+        background: $blue;
         height: 100%;
     }
 }

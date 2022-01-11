@@ -1,17 +1,25 @@
+@import './variables';
+
 .text {
     &--orange {
-        color: var(--orange);
+        color: $orange;
     }
     &--blue {
-        color: var(--blue);
+        color: $blue;
     }
 }
 
 .btn {
+    
     &--orange {
-        background-color: var(--orange);
+        background-color: $orange;
         color: white;
+        &:hover {
+            background-color: darken($orange, 10%);
+            color: white;
+        }
     }
+
     &--rounded {
         border-radius: 100rem;
     }
