@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <section>
     <h1>{{ this.$route.name }}</h1>
-  </main>
+  </section>
 </template>
 
 <script>

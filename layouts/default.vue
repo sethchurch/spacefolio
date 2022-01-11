@@ -6,7 +6,7 @@
             </a>
 
             <div class="nav__link-wrapper">
-                <nuxt-link class="nav__link" to="/" v-bind:class="{ isHome}"><p>Home</p></nuxt-link>
+                <nuxt-link class="nav__link" to="/"><p>Home</p></nuxt-link>
                 <nuxt-link class="nav__link" to="/about"><p>About Me</p></nuxt-link>
                 <nuxt-link class="nav__link" to="/skills"><p>My Skills</p></nuxt-link>
                 <nuxt-link class="nav__link" to="/work"><p>My Work</p></nuxt-link>
