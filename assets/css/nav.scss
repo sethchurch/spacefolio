@@ -1,0 +1,88 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 6rem;    
+    background: #21262C;
+    height: 100vh;
+    
+    & > * {
+        margin: 0.5rem;
+    }
+    
+    &__logo {
+        display: block;
+        background: #1E2022;
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+        margin: 0.75rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__social-links {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+
+        a {
+            padding: 0.25rem;
+            color: #d6dce4;
+        }
+    }
+
+    &__link-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        transition: all 0.25s ease;
+        text-decoration: none;
+
+        p {
+            border-radius: 100%;
+            margin: 1rem auto;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            * {
+                color: rgb(255, 255, 255);
+                font-size: 1rem;
+            }
+        }
+
+        &:hover {
+            background: lighten(#191B1E, 1%);
+        }
+    }
+}
+
+.nuxt-link-exact-active {
+    left: 0;
+    background: #191B1E;
+    position: relative;
+    &:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 0.25rem;
+        background: var(--blue);
+        height: 100%;
+    }
+    div {
+        background: var(--blue);
+    }
+}
