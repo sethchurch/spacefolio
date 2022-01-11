@@ -13,6 +13,12 @@ export default {
     ]
   },
 
+  // ssr: false,
+  // loading: {
+  //   color: 'blue',
+  //   height: '50px'
+  // },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/css/main.scss'

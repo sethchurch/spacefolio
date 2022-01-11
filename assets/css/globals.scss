@@ -1,0 +1,18 @@
+.text {
+    &--orange {
+        color: var(--orange);
+    }
+    &--blue {
+        color: var(--blue);
+    }
+}
+
+.btn {
+    &--orange {
+        background-color: var(--orange);
+        color: white;
+    }
+    &--rounded {
+        border-radius: 100rem;
+    }
+}
