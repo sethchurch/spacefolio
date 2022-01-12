@@ -43,3 +43,20 @@
         align-self: flex-end;
     }
 }
+
+.portfolio {
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__work-btn {
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+    }
+}
+
+section {
+    min-height: 100vh;
+}

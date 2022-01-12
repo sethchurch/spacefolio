@@ -8,9 +8,17 @@
       </header>
     </section>
     <section class="portfolio">
-      <SectionBody title="My Portfolio">
-        A small collection of projects I've worked on over the years. Interested in seeing more? Check out <a href='/work'>my work</a> page.
-      </SectionBody>
+      <div class="portfolio__header">
+        <SectionBody title="My Portfolio">
+          A small collection of projects I've worked on over the years. Interested in seeing more? Check out <a href='/work'>my work</a> page.
+        </SectionBody>
+        
+        <a href="/work" class="portfolio__work-btn btn--orange btn--outline">See More!</a>
+      </div>
+
+      <PortfolioDisplay title="Project 1" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." />
+      <PortfolioDisplay title="Project 2" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." />
+      <PortfolioDisplay title="Project 3" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." />
     </section>
     <section class="about">
       <SectionBody title="About Me">
@@ -21,9 +29,7 @@
     </section>
     <section class="contact">
       <SectionBody title="Contact Me">
-        I'm interested in freelance opportunities - especially ambitious or large 
-        projects. However, if you have other request or question, don't hesitate 
-        to use the form.
+         Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis.
       </SectionBody>
     </section>
   </div>

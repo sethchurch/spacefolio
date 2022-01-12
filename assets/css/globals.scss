@@ -10,13 +10,32 @@
 }
 
 .btn {
-    
     &--orange {
         background-color: $orange;
         color: white;
         &:hover {
             background-color: darken($orange, 10%);
             color: white;
+        }
+    }
+
+    &--blue {
+        @extend .btn--orange;
+        background-color: $blue;
+        &:hover {
+            background-color: darken($blue, 10%);
+        }
+    }
+
+    &--outline {
+        background: transparent;
+        &.btn--orange {
+            color: $orange;
+            border: 2px solid $orange;
+            &:hover {
+                background-color: $orange;
+                color: white;
+            }
         }
     }
 
