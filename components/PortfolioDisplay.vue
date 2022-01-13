@@ -1,7 +1,7 @@
 <template>
     <div class="portfolio-display">
 
-        <div class="portfolio-display__ring">
+        <div class="portfolio-display__head-wrapper">
             <div class="portfolio-display__planet">
                 <img :src="imgSrc" :alt="imgAlt" class="portfolio-display__img" />
             </div>
@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss" scoped>
     @import '~/assets/css/variables';
+    @import '~/assets/css/keyframes';
 
     .portfolio-display {
         display: flex;
@@ -91,17 +92,33 @@ export default {
             opacity: 0.6;
         }
 
-        &__ring {
+        &__head-wrapper {
             width: 15rem;
             height: 15rem;
-            // background: $blue;
-            border: 5px #163E66 solid;
-            border-radius: 100%;
+            position: relative;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            &:hover {
+                &:after {
+                    // animation-name: spin;
+                    // animation-duration: 4000ms;
+                    // animation-iteration-count: infinite;
+                    // animation-timing-function: linear;
+                    transform: rotate(3600deg);
+                }
+            }
+            &:after {
+                content: ' ';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: url('~/assets/images/planet_ring.svg');
+                transition: all 40000ms linear;
+            }
+
             &:hover .portfolio-display__view-btn {
                 display: block;
             }

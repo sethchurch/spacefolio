@@ -45,6 +45,9 @@
 }
 
 .portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
     &__header {
         display: flex;
         align-items: flex-end;

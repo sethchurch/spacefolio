@@ -1,0 +1,19 @@
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 331.7 331.7">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #173f66;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+
+      .cls-2 {
+        fill: #d3d3d3;
+      }
+    </style>
+  </defs>
+  <title>planet_ring</title>
+  <path class="cls-1" d="M252.06,33.94a163,163,0,1,0,47.3,35.29" transform="translate(-14.15 -14.15)"/>
+  <circle class="cls-2" cx="263.36" cy="33.87" r="14.54"/>
+</svg>
