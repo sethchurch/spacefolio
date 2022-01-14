@@ -1,0 +1,29 @@
+@import 'variables';
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        background: #1C2A35;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    &__input {
+        background: darken(#1C2A35, 5%);
+        border: 0;
+        padding: 0.5rem;
+        color: rgb(221, 221, 221);
+        margin-bottom: 1rem;
+        &:focus {
+            outline: 0;
+            border-bottom: 2px solid $blue;
+        }
+    }
+    &__btn {
+        flex-grow: 0;
+        align-self: flex-end;
+        padding: 0.5rem 2rem;
+    }
+}

@@ -1,3 +1,5 @@
+@import 'variables';
+
 .landing {
     font-size: 1.5rem;
     display: flex;
@@ -44,15 +46,25 @@
     }
 }
 
-.portfolio {
+.section {
+    min-height: 100vh;
+    &__header {
+        max-width: 50%;
+    }
+}
+
+.landing-portfolio {
+    background: #0C0F13;
+
     display: flex;
     flex-direction: column;
     gap: 5rem;
+    padding-bottom: 5rem;
     &__header {
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
-        margin-bottom: 5rem;
+        // margin-bottom: 5rem;
         gap: 5rem;
     }
 
@@ -64,6 +76,17 @@
     }
 }
 
-section {
-    min-height: 100vh;
+.landing-about {
+    background: #101519;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.landing-contact {
+    border-top: 3px solid #1F3A56;
+    background: #151C22;
+    &__form {
+       max-width: 75%;
+    }
 }

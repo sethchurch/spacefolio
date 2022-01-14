@@ -79,8 +79,8 @@ export default {
         }
 
         &__planet { 
-            width: 10rem;
-            height: 10rem;
+            width: 12rem;
+            height: 12rem;
             background: $blue;
             // border: 5px #163E66 solid;
             border-radius: 100%;
@@ -93,8 +93,8 @@ export default {
         }
 
         &__head-wrapper {
-            width: 15rem;
-            height: 15rem;
+            width: 18rem;
+            height: 18rem;
             position: relative;
             position: relative;
             display: flex;
