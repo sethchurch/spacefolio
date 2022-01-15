@@ -1,10 +1,12 @@
 @import 'variables';
 
+
 .landing {
     font-size: 1.5rem;
     display: flex;
     flex-direction:  column;
     align-items: flex-start;
+    position: relative;
 
     &__header {
         display: flex;
@@ -46,20 +48,74 @@
     }
 }
 
+// .container {
+//     position: relative;
+//     overflow: hidden;
+//     &:before {
+//         content: ' ';
+//         display: block;
+//         background: #101519;
+//         width: 400%;
+//         height: 100%;
+//         position: absolute;
+//         bottom: -55%;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         // border: 5px solid #1F3A56;
+//         border-radius: 100%;
+//         z-index: -1;
+//     }
+
+//     &:after {
+//         content: ' ';
+//         display: block;
+//         background: #151C22;
+//         width: 350%;
+//         height: 100%;
+//         position: absolute;
+//         bottom: -75%;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         border: 5px solid #1F3A56;
+//         border-radius: 100%;
+//         z-index: -1;
+//     }
+// }
+
 .section {
     min-height: 100vh;
     &__header {
         max-width: 50%;
     }
+    &__work-link {
+        color: $blue;
+        &:visited {
+            color: darken($blue, 20%);
+        }
+    }
 }
 
 .landing-portfolio {
-    background: #0C0F13;
-
+    // background: #0C0F13;
+    background: rgb(19,21,22);
+    background: linear-gradient(0deg, #0C0F13 0%, rgba(10,14,19,1) 90%, rgba(37,42,49,0) 100%);
     display: flex;
     flex-direction: column;
-    gap: 5rem;
-    padding-bottom: 5rem;
+    gap: 3rem;
+    padding-bottom: 8rem;
+    padding-top: 8rem;
+    position: relative;
+    &:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        bottom: -15rem;
+        left: 0;
+        z-index: -2;
+        background: rgb(19,21,22);
+        width: 100%;
+        height: 15rem;
+    }
     &__header {
         display: flex;
         align-items: flex-end;
@@ -84,7 +140,7 @@
 }
 
 .landing-contact {
-    border-top: 3px solid #1F3A56;
+    border-top: 5px solid #1F3A56;
     background: #151C22;
     &__form {
        max-width: 75%;

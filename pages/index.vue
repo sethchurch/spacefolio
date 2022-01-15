@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <!-- Header -->
     <section class="section landing">
       <header class="landing__header">
@@ -14,7 +14,7 @@
     <section class="section landing-portfolio">
       <div class="landing-portfolio__header">
         <SectionBody class="section__header" title="My Portfolio">
-          A small collection of projects I've worked on over the years. Interested in seeing more? Check out <a href='/work'>my work</a> page.
+          A small collection of projects I've worked on over the years. Interested in seeing more? Check out <a class="section__work-link" href='/work'>my work</a> page.
         </SectionBody>
         
         <a href="/work" class="landing-portfolio__work-btn btn--orange btn--outline">See More!</a>

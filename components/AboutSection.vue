@@ -23,6 +23,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    gap: 5rem;
     
     &__planet {
         width: 25rem;

@@ -81,15 +81,26 @@ export default {
         &__planet { 
             width: 12rem;
             height: 12rem;
-            background: $blue;
-            // border: 5px #163E66 solid;
             border-radius: 100%;
             position: relative;
             flex-shrink: 0;
             overflow: hidden;
             margin: 0;
             padding: 0;
-            opacity: 0.6;
+            z-index: 0;
+            &:after {
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+                background: $blue;
+                opacity: 0.1;
+                transition: opacity 0.5s ease;
+            }
+            
         }
 
         &__head-wrapper {
@@ -102,21 +113,26 @@ export default {
             justify-content: center;
             flex-shrink: 0;
             &:hover {
+                & .portfolio-display__img {
+                    width: 130%;
+                }
+
+                & .portfolio-display__planet:after {
+                    opacity: 0.3;
+                }
+
                 &:after {
-                    // animation-name: spin;
-                    // animation-duration: 4000ms;
-                    // animation-iteration-count: infinite;
-                    // animation-timing-function: linear;
                     transform: rotate(3600deg);
                 }
             }
+
             &:after {
                 content: ' ';
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 background-image: url('~/assets/images/planet_ring.svg');
-                transition: all 40000ms linear;
+                transition: all 40000ms ease-out;
             }
 
             &:hover .portfolio-display__view-btn {
@@ -146,7 +162,11 @@ export default {
         &__img {
             border: 0;
             width: 100%;
-            position: relative;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease;
             z-index: -1;
         }
 

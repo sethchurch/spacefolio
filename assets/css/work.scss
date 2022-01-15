@@ -1,0 +1,40 @@
+$size: 15rem;
+$margin: 2px;
+$float: calc($size * 1.732 + 4 * $margin - 1px);
+
+.work {   
+    height: 100%;
+    &__header {
+        margin-bottom: 3rem;
+    }
+
+    &__work-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__work-list {
+        font-size: 0; 
+        &:before {
+            content: "";
+            width: calc($size / 2 + $margin);
+            float: left;
+            height: 120%; 
+            shape-outside: repeating-linear-gradient(#0000 0 calc($float - 3px), #000 0 $float);
+        }
+    }
+
+    &__work-item {
+        background: rgb(87, 87, 87);
+        width: $size;
+        margin: $margin;
+        height: calc($size * 1.1547);
+        display: inline-block;
+        font-size:initial;
+        clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+        margin-bottom: calc($margin - $size * 0.2885);
+        &:hover {
+            background: darken(rgb(87, 87, 87), 10%);
+        }
+    }
+}
