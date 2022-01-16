@@ -27,7 +27,6 @@ $float: calc($size * 1.732 + 4 * $margin - 1px);
     }
 
     &__work-item {
-        background: rgb(46, 46, 46);
         width: $size;
         margin: $margin;
         height: calc($size * 1.1547);
@@ -35,8 +34,5 @@ $float: calc($size * 1.732 + 4 * $margin - 1px);
         font-size:initial;
         clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
         margin-bottom: calc($margin - $size * 0.2885);
-        &:hover {
-            background: darken(rgb(54, 54, 54), 10%);
-        }
     }
 }

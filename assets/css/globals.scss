@@ -37,6 +37,15 @@
                 color: white;
             }
         }
+        
+        &.btn--blue {
+            color: $blue;
+            border: 2px solid $blue;
+            &:hover {
+                background-color: $blue;
+                color: white;
+            }
+        }
     }
 
     &--rounded {

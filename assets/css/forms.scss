@@ -6,19 +6,22 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
-        background: #1C2A35;
-        padding: 1rem;
-        margin-bottom: 1rem;
+        // background: #1C2A35;
+        // padding: 1rem;
+        // margin-bottom: 1rem;
     }
     &__input {
-        background: darken(#1C2A35, 5%);
+        // background: darken(#1C2A35, 5%);
+        // background: #1C2A35;
+        background: saturate($color: lighten($baseBG, 7%), $amount: 7%);
         border: 0;
         padding: 0.5rem;
+        font-size: 1.2rem;
         color: rgb(221, 221, 221);
         margin-bottom: 1rem;
         &:focus {
             outline: 0;
-            border-bottom: 2px solid $blue;
+            border-bottom: 2px solid $orange;
         }
     }
     &__btn {

@@ -6,29 +6,37 @@
         Quisque faucibus, tortor a blandit imperdiet, sapien orci vulputate felis, at sollicitudin diam urna in magna.
       </SectionBody>
 
-      <div class="work__work-container">
+      <!-- <div class="work__work-container">
         <div class="work__work-list">
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
+          <WorkDisplay class="work__work-item" />
         </div>
-      </div>
+      </div> -->
   </section>
 </template>
 
