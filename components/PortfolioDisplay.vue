@@ -118,7 +118,12 @@ export default {
                 }
 
                 & .portfolio-display__planet:after {
-                    opacity: 0.3;
+                    opacity: 0.2;
+                }
+
+                & .portfolio-display__view-btn {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(-50%) scale(1);
                 }
 
                 &:after {
@@ -134,23 +139,20 @@ export default {
                 background-image: url('~/assets/images/planet_ring.svg');
                 transition: all 40000ms ease-out;
             }
-
-            &:hover .portfolio-display__view-btn {
-                display: block;
-            }
         }
 
         &__view-btn {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%) scale(0.5);
             text-align: center;
             height: 5rem;
             width: 5rem;
             border-radius: 100%;
             border: 0;
-            display: none;
+            opacity: 0;
+            transition: all 0.5s ease;
         }
 
         &__skill-pill {

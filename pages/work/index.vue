@@ -27,7 +27,6 @@
           <div class="work__work-item"></div>
           <div class="work__work-item"></div>
           <div class="work__work-item"></div>
-          <div class="work__work-item"></div>
         </div>
       </div>
   </section>
