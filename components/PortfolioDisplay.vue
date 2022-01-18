@@ -118,7 +118,7 @@ export default {
                 }
 
                 & .portfolio-display__planet:after {
-                    opacity: 0.2;
+                    opacity: 0.3;
                 }
 
                 & .portfolio-display__view-btn {
