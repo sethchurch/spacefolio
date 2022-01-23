@@ -73,14 +73,14 @@
 }
 
 .landing-portfolio {
-    // background: #0C0F13;
-    background: rgb(19,21,22);
-    background: linear-gradient(0deg, #0C0F13 0%, rgba(10,14,19,1) 90%, rgba(37,42,49,0) 100%);
+    background: #0C0F13;
+    // background: rgb(19,21,22);
+    // background: linear-gradient(0deg, #0C0F13 0%, rgba(10,14,19,1) 90%, rgba(37,42,49,0) 100%);
     display: flex;
     flex-direction: column;
     gap: 3rem;
     padding-bottom: 8rem;
-    padding-top: 8rem;
+    // padding-top: 8rem;
     position: relative;
     &:before {
         content: ' ';

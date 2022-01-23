@@ -1,15 +1,15 @@
 <template>
     <nav class="nav">
-        <nuxt-link to="/" class="nav__logo">
+        <a href="/" class="nav__logo">
             <img src="portfolio_logo.svg">
-        </nuxt-link>
+        </a>
 
         <div class="nav__link-wrapper">
-            <nuxt-link class="nav__link" to="/"><div><fa icon="home" /></div></nuxt-link>
-            <nuxt-link class="nav__link" to="/about"><div><fa icon="cog" /></div></nuxt-link>
-            <nuxt-link class="nav__link" to="/skills"><div><fa icon="cog" /></div></nuxt-link>
-            <nuxt-link class="nav__link" to="/work"><div><fa icon="cog" /></div></nuxt-link>
-            <nuxt-link class="nav__link" to="/contact"><div><fa icon="cog" /></div></nuxt-link>
+            <nuxt-link class="nav__link" to="/"><p>Home</p></nuxt-link>
+            <nuxt-link class="nav__link" to="/about"><p>About Me</p></nuxt-link>
+            <!-- <nuxt-link class="nav__link" to="/skills"><p>My Skills</p></nuxt-link> -->
+            <nuxt-link class="nav__link" to="/work"><p>My Work</p></nuxt-link>
+            <nuxt-link class="nav__link" to="/contact"><p>Contact</p></nuxt-link>
         </div>
 
         <div class="nav__social-links">

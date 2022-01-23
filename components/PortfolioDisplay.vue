@@ -1,8 +1,8 @@
 <template>
-    <div class="portfolio-display">
+    <div class="portfolio-display" :class="flip ? 'portfolio-display--flip' : ''">
 
-        <div class="portfolio-display__head-wrapper">
-            <div class="portfolio-display__planet">
+        <div class="portfolio-display__head-wrapper" :class="planet ? 'portfolio-display__head-wrapper--planet' : 'portfolio-display__head-wrapper--square'">
+            <div class="portfolio-display__container">
                 <img :src="imgSrc" :alt="imgAlt" class="portfolio-display__img" />
             </div>
             <button class="portfolio-display__view-btn btn--blue" >View Project</button>
@@ -33,7 +33,9 @@ export default {
         skills: Array,
         gitLink: String,
         imgSrc: String,
-        imgAlt: String
+        imgAlt: String,
+        flip: Boolean,
+        planet: Boolean
     }
 }
 </script>
@@ -48,7 +50,7 @@ export default {
         align-items: center;
         gap: 3rem;
 
-        &:nth-child(2n+1) {
+        &--flip {
             flex-direction: row-reverse;
             .portfolio-display {
                 &__wrapper {
@@ -78,7 +80,7 @@ export default {
             }
         }
 
-        &__planet { 
+        &__container { 
             width: 12rem;
             height: 12rem;
             border-radius: 100%;
@@ -104,21 +106,47 @@ export default {
         }
 
         &__head-wrapper {
-            width: 18rem;
-            height: 18rem;
-            position: relative;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            &--square {
+
+                 & .portfolio-display__container {
+                    top: 0;
+                    border-radius: 1rem;
+                    height: 18rem;
+                    background: 0;
+                    &:after { 
+                        border-radius: 1rem;
+                        opacity: 0.1;
+                        // display: none; 
+                    }
+                }
+            }
+
+            &--planet {
+                width: 18rem;
+                height: 18rem;
+
+                &:before {
+                    content: ' ';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('~/assets/images/planet_ring.svg');
+                    transition: all 40000ms ease-out;
+                }
+            }
+
             &:hover {
                 & .portfolio-display__img {
-                    width: 130%;
+                    width: 150%;
                 }
 
-                & .portfolio-display__planet:after {
-                    opacity: 0.3;
+                & .portfolio-display__container:after {
+                    opacity: 0.35;
                 }
 
                 & .portfolio-display__view-btn {
@@ -126,18 +154,9 @@ export default {
                     transform: translateX(-50%) translateY(-50%) scale(1);
                 }
 
-                &:after {
+                &:before {
                     transform: rotate(3600deg);
                 }
-            }
-
-            &:after {
-                content: ' ';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-image: url('~/assets/images/planet_ring.svg');
-                transition: all 40000ms ease-out;
             }
         }
 
@@ -168,7 +187,7 @@ export default {
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            transition: width 0.5s ease;
+            transition: all 0.5s ease;
             z-index: -1;
         }
 
