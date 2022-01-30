@@ -35,4 +35,10 @@ $float: calc($size * 1.732 + 4 * $margin - 1px);
         clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
         margin-bottom: calc($margin - $size * 0.2885);
     }
+
+    &__portfolio-container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
 }

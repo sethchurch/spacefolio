@@ -1,25 +1,26 @@
 <template>
-    <div class="portfolio-display" :class="flip ? 'portfolio-display--flip' : ''">
+    <div class="portfolio-planet" :class="flip ? 'portfolio-planet--flip' : ''">
 
-        <div class="portfolio-display__head-wrapper" :class="planet ? 'portfolio-display__head-wrapper--planet' : 'portfolio-display__head-wrapper--square'">
-            <div class="portfolio-display__container">
-                <img :src="imgSrc" :alt="imgAlt" class="portfolio-display__img" />
+        <div class="portfolio-planet__head-wrapper" :class="planet ? 'portfolio-planet__head-wrapper--planet' : 'portfolio-planet__head-wrapper--square'">
+            <div class="portfolio-planet__container">
+                <img :src="imgSrc" :alt="imgAlt" class="portfolio-planet__img" />
             </div>
-            <button class="portfolio-display__view-btn btn--blue" >View Project</button>
+            <button class="portfolio-planet__view-btn btn--blue" >View Project</button>
         </div>
 
-        <div class="portfolio-display__wrapper">
-            <h3  class="portfolio-display__title">{{ title }}</h3>
+        <div class="portfolio-planet__wrapper">
+            <h3  class="portfolio-planet__title">{{ title }}</h3>
 
-            <div class="portfolio-display__skills">
-                <span class="portfolio-display__skill-pill">Vue.JS</span>
-                <span class="portfolio-display__skill-pill">SASS</span>
-                <span class="portfolio-display__skill-pill">Javascript</span>
+            <div class="portfolio-planet__skills">
+                <span class="portfolio-planet__skill-pill">Vue.JS</span>
+                <span class="portfolio-planet__skill-pill">SASS</span>
+                <span class="portfolio-planet__skill-pill">Javascript</span>
             </div>
 
-            <p class="portfolio-display__desc">{{ desc }}</p>
+            <!-- <p class="portfolio-planet__desc">{{ desc }}</p> -->
+            <p class="portfolio-planet__desc">Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis. Duis sit amet ante pellentesque, laoreet mauris sit amet, fermentum tellus. Duis purus massa, lobortis et urna id, pretium convallis enim.</p>
 
-            <a href="/"><button class="portfolio-display__btn btn--blue btn--rounded">Learn More</button></a>
+            <a href="/"><button class="portfolio-planet__btn btn--blue btn--rounded">Learn More</button></a>
         </div>
 
     </div>
@@ -44,7 +45,7 @@ export default {
     @import '~/assets/css/variables';
     @import '~/assets/css/keyframes';
 
-    .portfolio-display {
+    .portfolio-planet {
         display: flex;
         justify-self: center;
         align-items: center;
@@ -52,7 +53,7 @@ export default {
 
         &--flip {
             flex-direction: row-reverse;
-            .portfolio-display {
+            .portfolio-planet {
                 &__wrapper {
                     display: flex;
                     flex-direction: column;
@@ -113,15 +114,14 @@ export default {
             flex-shrink: 0;
             &--square {
 
-                 & .portfolio-display__container {
+                 & .portfolio-planet__container {
                     top: 0;
-                    border-radius: 1rem;
+                    border-radius: 0.5rem;
                     height: 18rem;
                     background: 0;
                     &:after { 
-                        border-radius: 1rem;
+                        border-radius: 0.5rem;
                         opacity: 0.1;
-                        // display: none; 
                     }
                 }
             }
@@ -141,15 +141,15 @@ export default {
             }
 
             &:hover {
-                & .portfolio-display__img {
+                & .portfolio-planet__img {
                     width: 150%;
                 }
 
-                & .portfolio-display__container:after {
+                & .portfolio-planet__container:after {
                     opacity: 0.35;
                 }
 
-                & .portfolio-display__view-btn {
+                & .portfolio-planet__view-btn {
                     opacity: 1;
                     transform: translateX(-50%) translateY(-50%) scale(1);
                 }

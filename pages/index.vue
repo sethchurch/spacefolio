@@ -20,9 +20,9 @@
         <a href="/work" class="landing-portfolio__work-btn btn--orange btn--outline">See More!</a>
       </div>
 
-      <PortfolioDisplay :planet="true" title="Community Leaderboard" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." imgSrc="https://images.unsplash.com/photo-1641978909561-015aaa540119" />
-      <PortfolioDisplay :planet="true" title="Course Tracker Mobile" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." imgSrc="https://images.unsplash.com/photo-1641978909561-015aaa540119" :flip="true" />
-      <PortfolioDisplay :planet="true" title="Project Name 3" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." imgSrc="https://images.unsplash.com/photo-1641978909561-015aaa540119" />
+      <PortfolioPlanet :planet="true" title="Community Leaderboard" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." imgSrc="https://images.unsplash.com/photo-1641978909561-015aaa540119" />
+      <PortfolioPlanet :planet="true" title="Course Tracker Mobile" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." imgSrc="https://images.unsplash.com/photo-1641978909561-015aaa540119" :flip="true" />
+      <PortfolioPlanet :planet="true" title="Project Name 3" desc="Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis." imgSrc="https://images.unsplash.com/photo-1641978909561-015aaa540119" />
     </section>
     <!-- Portfolio Section End -->
 

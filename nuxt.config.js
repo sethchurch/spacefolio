@@ -40,7 +40,8 @@ export default {
     component: 'fa',
     icons: {
       solid: ['faHome', 'faCog', 'faBriefcase', 'faAlignLeft'],
-      brands: ['faLinkedinIn', 'faGithub', 'faCodepen']
+      // brands: ['faLinkedinIn', 'faGithub', 'faCodepen', 'faJs']
+      brands: true
     }
   },
 
