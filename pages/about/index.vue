@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <main>
     <AboutSection />
-  </section>
+  </main>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 
-  section {
+  main {
     display: flex;
     align-items: center;
     justify-content: space-between;

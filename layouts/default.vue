@@ -1,10 +1,10 @@
 <template>
-    <main>
+    <div class="main-container">
         <Navbar />
         
         <!-- <div id="curEl"></div> -->
         <Nuxt />
-    </main>
+    </div>
 </template>
 <style lang="scss" scoped>
     // TODO: Custom Cursor
