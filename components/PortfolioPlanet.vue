@@ -5,22 +5,19 @@
             <div class="portfolio-planet__container">
                 <img :src="imgSrc" :alt="imgAlt" class="portfolio-planet__img" />
             </div>
-            <button class="portfolio-planet__view-btn btn--blue" >View Project</button>
+            <a target="_blank" :href="gitLink"><button class="portfolio-planet__view-btn btn--blue" >View Project</button></a>
         </div>
 
         <div class="portfolio-planet__wrapper">
             <h3  class="portfolio-planet__title">{{ title }}</h3>
 
             <div class="portfolio-planet__skills">
-                <span class="portfolio-planet__skill-pill">Vue.JS</span>
-                <span class="portfolio-planet__skill-pill">SASS</span>
-                <span class="portfolio-planet__skill-pill">Javascript</span>
+                <span class="portfolio-planet__skill-pill" v-for="skill in skills">{{ skill }}</span>
             </div>
 
-            <!-- <p class="portfolio-planet__desc">{{ desc }}</p> -->
-            <p class="portfolio-planet__desc">Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis. Duis sit amet ante pellentesque, laoreet mauris sit amet, fermentum tellus. Duis purus massa, lobortis et urna id, pretium convallis enim.</p>
+            <p class="portfolio-planet__desc">{{ desc }}</p>
 
-            <a href="/"><button class="portfolio-planet__btn btn--blue btn--rounded">Learn More</button></a>
+            <a target="_blank" :href="gitLink"><button class="portfolio-planet__btn btn--blue btn--rounded">Learn More</button></a>
         </div>
 
     </div>
@@ -172,6 +169,11 @@ export default {
             border: 0;
             opacity: 0;
             transition: all 0.5s ease;
+        }
+
+        &__skills {
+            display: flex;
+            gap: 0 0.5rem; 
         }
 
         &__skill-pill {
