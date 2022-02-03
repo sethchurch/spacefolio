@@ -14,7 +14,7 @@
     <section class="section landing-portfolio">
       <div class="landing-portfolio__header">
         <SectionBody class="section__header" title="My Portfolio">
-          A small collection of projects I've worked on over the years. Interested in seeing more? Check out <a class="section__work-link" href='/work'>my work</a> page.
+          <p>Here's a few highlights from projects I've worked on over the years. Interested in seeing more? Check out <a class="section__work-link" href='/work'>my work</a> page.</p>
         </SectionBody>
         
         <a href="/work" class="landing-portfolio__work-btn btn--orange btn--outline">See More!</a>
@@ -35,7 +35,7 @@
     <!-- Contact Section -->
     <section class="section landing-contact">
       <SectionBody class="section__header" title="Contact Me">
-         Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis.
+         <p>If you're looking to collaborate on a project, get in touch about a position, or say hi, feel free to use the form below. I'll be in touch with you as soon as I can.</p>
       </SectionBody>
 
       <ContactForm class="landing-contact__form" />
@@ -44,7 +44,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p>Developed and Designed By Seth Church</p>
+      <p>Designed and Developed By Seth Church</p>
     </footer>
     <!-- Footer End -->
   </div>

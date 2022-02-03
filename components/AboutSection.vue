@@ -1,9 +1,12 @@
 <template>
     <div class="about">
         <SectionBody class="about__body" title="About Me">
-        <p>Names Gregory Seth Church though most people just call me Seth. I'm an avid learner with a passion for many talents and interests, one road of which led to me becoming an excellent designer and builder of digital products.</p>
+        <p>I'm Gregory Seth Church, though most people just call me Seth. I'm an avid learner with a lot of passion for computer science especially designing and building digital products.</p>
         <p>
-          I strive to make the web faster, more accessible, visually appealing, and easy to use as a developer. I'm constantly looking for opportunities to improve and better myself as a developer and learn new technologies. I'm never quite satisfied with learning simply the high-level concepts of technology; if you're interested in what skills I've picked up over the years, here's what I work with currently: 
+          I strive to make the web faster, more accessible, visually appealing, and easy to use as a developer. 
+          I'm constantly looking for opportunities to improve my skills and learn new technologies. 
+          I'm never quite satisfied with learning the high-level concepts of a technology prefering to get a deep understanding of them. 
+          Here are some of the technologies I've learned over the years: 
            <!-- in what I'm working with at the moment check the planet. -->
         </p>
         <ul class="about__skills">
@@ -44,7 +47,7 @@
       gap: 1rem;
       padding: 0;
       flex-wrap: wrap;
-      justify-content: center;
+      // justify-content: center;
     }
 
     &__skills-item {

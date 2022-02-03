@@ -1,9 +1,9 @@
 <template>
     <article class="section-body">
         <h2 class="section-body__title text--orange">{{ title }}</h2>
-        <p class="section-body__text">
+        <div class="section-body__slot">
             <slot />
-        </p>
+        </div>
     </article>
 </template>
 
