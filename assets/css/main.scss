@@ -6,8 +6,11 @@
     // cursor: none;
 }
 
-body {
+html {
     background-color: $baseBG;
+}
+
+body {
     color: white;
     padding: 0;
     margin: 0;
@@ -21,4 +24,9 @@ body {
 
 .container > section, .main-container > main {
     padding: 3rem 5rem;
+}
+
+.container, .main-container > main {
+    max-width: 1500px;
+    margin: 0 auto;
 }

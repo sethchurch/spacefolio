@@ -47,7 +47,6 @@
       gap: 1rem;
       padding: 0;
       flex-wrap: wrap;
-      // justify-content: center;
     }
 
     &__skills-item {
@@ -68,8 +67,6 @@
     }
 
     &__skills-name {
-      // position: absolute;
-      // bottom: 0.5rem;
       margin: 0;
       margin-top: 0.5rem;
     }
