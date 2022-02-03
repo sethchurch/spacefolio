@@ -1,25 +1,18 @@
 <template>
     <div class="about">
         <SectionBody class="about__body" title="About Me">
-        Integer eget magna nisi. Vivamus sit amet leo erat. Praesent enim risus, mattis sit amet mollis nec, facilisis et eros. Phasellus lobortis varius ligula. Vivamus pretium ut odio eget facilisis.
-        <br>
-        <br>
-        Duis sit amet ante pellentesque, laoreet mauris sit amet, fermentum tellus. Duis purus massa, lobortis et urna id, pretium convallis enim. Praesent a sodales mi. Nullam fringilla est ornare tellus congue, eu imperdiet erat volutpat. Nam ut tempus eros. Aenean id nunc nec ante gravida fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut commodo quam sed sollicitudin feugiat.
-        <br>
-        <br>
-        Quisque faucibus, tortor a blandit imperdiet, sapien orci vulputate felis, at sollicitudin diam urna in magna.
+        <p>Names Gregory Seth Church though most people just call me Seth. I'm an avid learner with a passion for many talents and interests, one road of which led to me becoming an excellent designer and builder of digital products.</p>
+        <p>
+          I strive to make the web faster, more accessible, visually appealing, and easy to use as a developer. I'm constantly looking for opportunities to improve and better myself as a developer and learn new technologies. I'm never quite satisfied with learning simply the high-level concepts of technology; if you're interested in what skills I've picked up over the years, here's what I work with currently: 
+           <!-- in what I'm working with at the moment check the planet. -->
+        </p>
         <ul class="about__skills">
           <li class="about__skills-item" v-for="skill in skills">
             <i class="about__skills-icon" :class="skill.icon" />
             <p class="about__skills-name" >{{ skill.name }}</p>
           </li>
         </ul>
-        <!-- <ul class="about__skills">
-          <li class="about__skills-item" v-for="skill in skills">
-            <fa class="about__skills-icon" :icon="skill.icon" />
-            <p class="about__skills-name" >{{ skill.name }}</p>
-          </li>
-        </ul> -->
+        <p>Are you looking to hire a developer? Looking to get something made? Need an opinion on a project? Don't hesitate to reach out to me on my <nuxt-link class="about__link" to="/contact">contact page.</nuxt-link></p>
       </SectionBody>
 
       <div class="about__planet">
@@ -39,6 +32,11 @@
     width: 100%;
     gap: 5rem;
 
+    &__link {
+      color: $blue;
+      text-decoration: none;
+    }
+
     &__skills {
       list-style-type: none;
       display: flex;
@@ -46,6 +44,7 @@
       gap: 1rem;
       padding: 0;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     &__skills-item {
@@ -53,6 +52,7 @@
       flex-direction: column;
       height: 7rem;
       width: 7rem;
+      border-radius: 100%;
       background: lighten($baseBG, 10%);
       justify-content: center;
       align-items: center;
@@ -61,7 +61,7 @@
     }
 
     &__skills-icon {
-      font-size: 3.5rem;
+      font-size: 3rem;
     }
 
     &__skills-name {
