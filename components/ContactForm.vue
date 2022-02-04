@@ -1,5 +1,5 @@
 <template>
-    <form class="contact-form">
+    <form class="contact-form" netlify>
         <div class="contact-form__wrapper">
             <!-- <label class="contact-form__label" for="name">Name:</label> -->
             <input placeholder="Name" class="contact-form__input" type="text" name="name">
