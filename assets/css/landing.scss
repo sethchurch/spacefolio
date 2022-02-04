@@ -135,5 +135,14 @@
 @media (max-width: 1000px) {
     .landing-portfolio {
         padding-bottom: 3rem;
+        &__header {
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 1rem;
+        }
+
+        &__work-btn {
+            display: none;
+        }
     }
 }

@@ -109,7 +109,7 @@
         &__large {
             position: fixed;
             flex-direction: row;
-            height: 3rem;
+            height: $topNavWidth;
             width: 100%;
         }
         &__link {

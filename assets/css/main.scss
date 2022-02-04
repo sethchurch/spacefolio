@@ -59,15 +59,14 @@ body {
 
     .main-container {
         padding-left: 0;
-        // padding-top: 3rem;
         flex-direction: column;
     }
 
     .landing-container {
-        padding-top: 3rem;
+        padding-top: $topNavWidth;
     }
 
     .main-container > main {
-        padding-top: 6rem;
+        padding-top: calc($topNavWidth * 2);
     }
 }

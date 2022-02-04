@@ -18,7 +18,7 @@
     <!-- Portfolio Section -->
     <section class="section landing-portfolio">
       <div class="container">
-          <div class="landing-portfolio__header">
+        <div class="landing-portfolio__header">
           <SectionBody class="section__header" title="My Portfolio">
             <p>Here's a few highlights from projects I've worked on over the years. Interested in seeing more? Check out <a class="section__work-link" href='/work'>my work</a> page.</p>
           </SectionBody>
