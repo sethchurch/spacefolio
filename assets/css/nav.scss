@@ -3,19 +3,18 @@
 .nav {
     z-index: 999; 
     
-    &__large {
-        background: hsl(213, 14%, 15%);
-        position: fixed;
-        left: 0;
-        width: 6rem;    
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        & > * {
-            margin: 0.5rem;
-        }
+    background: hsl(213, 14%, 15%);
+    position: fixed;
+    left: 0;
+    width: 6rem;    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    & > * {
+        margin: 0.5rem;
     }
     
     &__logo {
@@ -94,6 +93,10 @@
 
 @media (max-width: 1300px) {
     .nav {
+        position: fixed;
+        flex-direction: row;
+        height: $topNavWidth;
+        width: 100%;
         &__logo {
             display: block;
             background: saturate($color: darken(#21262C, 3%), $amount: 2%);
@@ -105,12 +108,6 @@
                 width: initial;
                 height: 100%;
             }
-        }
-        &__large {
-            position: fixed;
-            flex-direction: row;
-            height: $topNavWidth;
-            width: 100%;
         }
         &__link {
             top: 0;
@@ -132,13 +129,58 @@
         background: #191B1E;
         position: relative;
         &:before {
-            content: ' ';
-            display: block;
-            position: absolute;
             bottom: 0;
             width: 100%;
             height: 0.25rem;
-            background: $blue;
+        }
+    }
+}
+
+
+@media (max-width: 800px) {
+    .nav {
+        padding-bottom: 2rem;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        gap: 3rem;
+        top: -100%;
+        &__logo {
+            padding: 1.5rem;
+            height: 15rem;
+            width: 100%;
+            img {
+                width: initial;
+                display: block;
+                margin: 0 auto;
+                height: 100%;
+            }
+        }
+        &__link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgb(5, 22, 41);
+        }
+        &__link-wrapper {
+            flex-direction: column;
+            width: 100%;
+            height: 50%;
+        }
+        &__social-links {
+            flex-direction: row;
+            font-size: 2rem;
+            gap: 1.5rem;
+        }
+    }
+
+    .nuxt-link-exact-active {
+        left: 0;
+        background: #191B1E;
+        position: relative;
+        &:before {
+            bottom: inital;
+            top: 0;
         }
     }
 }

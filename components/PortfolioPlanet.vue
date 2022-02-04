@@ -1,7 +1,7 @@
 <template>
     <div class="portfolio-planet" :class="flip ? 'portfolio-planet--flip' : ''">
 
-        <div class="portfolio-planet__head-wrapper" :class="planet ? 'portfolio-planet__head-wrapper--planet' : 'portfolio-planet__head-wrapper--square'">
+        <div class="portfolio-planet__head-wrapper portfolio-planet__head-wrapper--planet">
             <div class="portfolio-planet__container">
                 <img :src="imgSrc" :alt="imgAlt" class="portfolio-planet__img" />
             </div>

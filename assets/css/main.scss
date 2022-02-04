@@ -3,7 +3,6 @@
 
 *, *:before, *:after {
     box-sizing: border-box;
-    // cursor: none;
 }
 
 html {
@@ -68,5 +67,12 @@ body {
 
     .main-container > main {
         padding-top: calc($topNavWidth * 2);
+    }
+}
+
+
+@media (max-width: 800px) {
+    .container > section, .main-container > main {
+        padding: 1rem 3rem;
     }
 }
