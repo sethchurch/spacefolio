@@ -49,13 +49,14 @@ export default {
         gap: 3rem;
 
         &--flip {
+            text-align: right;
             flex-direction: row-reverse;
             .portfolio-planet {
                 &__wrapper {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-end;
-                    text-align: right;
+                    text-align: inherit;
                 }
                 &__title {
                     &:after {
@@ -199,5 +200,49 @@ export default {
             font-size: 1rem;
         }
         
+    }
+
+    @media (max-width: 1000px) {
+        .portfolio-planet {
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+
+            &--flip {
+                .portfolio-planet {
+                    &__wrapper {
+                        align-items: center;
+                    }
+                    &__title {
+                        &:after {
+                            margin: 0.5rem auto;
+                        }
+                    }
+                }
+            }
+
+            &__title {
+                &:after {
+                    content: ' ';
+                    display: block;
+                    height: 0.4rem;
+                    width: 4rem;
+                    background: $orange;
+                    margin: 0.5rem auto;
+                    
+                }
+            }
+
+            &__skills {
+                justify-content: center;
+            }
+
+            &--flip {
+                text-align: center;
+                flex-direction: column;
+            }
+        }
     }
 </style>

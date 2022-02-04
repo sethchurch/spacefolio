@@ -129,3 +129,11 @@
     text-align: center;
     background: darken($baseBG, 2%);
 }
+
+
+
+@media (max-width: 1000px) {
+    .landing-portfolio {
+        padding-bottom: 3rem;
+    }
+}

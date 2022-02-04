@@ -53,8 +53,8 @@
     &__skills-item {
       display: flex;
       flex-direction: column;
-      height: 7rem;
-      width: 7rem;
+      height: 7em;
+      width: 7em;
       border-radius: 100%;
       background: lighten($baseBG, 10%);
       justify-content: center;
@@ -64,12 +64,12 @@
     }
 
     &__skills-icon {
-      font-size: 3rem;
+      font-size: 3em;
     }
 
     &__skills-name {
       margin: 0;
-      margin-top: 0.5rem;
+      margin-top: 0.5em;
     }
     
     &__planet {
@@ -79,6 +79,24 @@
         background: $orange;
         margin: 0 auto;
         flex-shrink: 0;
+    }
+  }
+
+    
+  @media (max-width: 1300px) {
+    .about {
+      flex-direction: column-reverse;
+      gap: 1rem;
+      &__planet {
+        width: 15rem;
+        height: 15rem;
+      }
+
+      &__skills {
+        justify-content: center;
+        font-size: 0.9rem;
+        gap: 0.9rem;
+      }
     }
   }
 </style>
