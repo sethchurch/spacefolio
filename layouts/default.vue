@@ -1,7 +1,6 @@
 <template>
     <div class="main-container">
         <Navbar />
-        
         <!-- <div id="curEl"></div> -->
         <Nuxt />
     </div>

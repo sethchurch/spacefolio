@@ -1,18 +1,21 @@
 @import './variables';
 
 .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 6rem;    
-    background: #21262C;
-    height: 100vh;
     z-index: 999; 
-    position: fixed;
-    left: 0;
-    & > * {
-        margin: 0.5rem;
+    
+    &__large {
+        background: hsl(213, 14%, 15%);
+        position: fixed;
+        left: 0;
+        width: 6rem;    
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        & > * {
+            margin: 0.5rem;
+        }
     }
     
     &__logo {
@@ -85,5 +88,57 @@
         width: 0.25rem;
         background: $blue;
         height: 100%;
+    }
+}
+
+
+@media (max-width: 1300px) {
+    .nav {
+        &__logo {
+            display: block;
+            background: saturate($color: darken(#21262C, 3%), $amount: 2%);
+            padding: 0.25rem 1rem;
+            border-radius: 0;
+            margin: 0;
+            height: 100%;
+            img {
+                width: initial;
+                height: 100%;
+            }
+        }
+        &__large {
+            position: fixed;
+            flex-direction: row;
+            height: 3rem;
+            width: 100%;
+        }
+        &__link {
+            top: 0;
+            height: 100%;
+        }
+        &__link-wrapper {
+            flex-direction: row;
+            width: 50%;
+            height: 100%;
+        }
+        &__social-links {
+            flex-direction: row;
+            gap: 0 0.5rem;
+        }
+    }
+
+    .nuxt-link-exact-active {
+        left: 0;
+        background: #191B1E;
+        position: relative;
+        &:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0.25rem;
+            background: $blue;
+        }
     }
 }

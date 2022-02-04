@@ -14,6 +14,7 @@ body {
     color: white;
     padding: 0;
     margin: 0;
+    font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -34,4 +35,39 @@ body {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+}
+
+.warning {
+    z-index: 999;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    background: rgba(122, 6, 6, 0.6);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding:  1rem;
+    pointer-events: none;
+}
+
+@media (max-width: 1300px) {
+    .nav__large {
+        position: relative;
+        flex-direction: row;
+        height: 6rem;
+    }
+
+    .main-container {
+        padding-left: 0;
+        // padding-top: 3rem;
+        flex-direction: column;
+    }
+
+    .landing-container {
+        padding-top: 3rem;
+    }
+
+    .main-container > main {
+        padding-top: 6rem;
+    }
 }
