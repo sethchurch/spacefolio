@@ -1,10 +1,10 @@
 <template>
-    <article class="section-body">
+    <div class="section-body">
         <h2 class="section-body__title text--orange">{{ title }}</h2>
         <div class="section-body__slot">
             <slot />
         </div>
-    </article>
+    </div>
 </template>
 
 <script>

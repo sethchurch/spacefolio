@@ -20,6 +20,7 @@ body {
 .main-container {
     display: flex;
     padding-left: 6rem;
+    position:relative;
 }
 
 .container > section, .main-container > main {
@@ -27,6 +28,10 @@ body {
 }
 
 .container, .main-container > main {
-    max-width: 1500px;
+    max-width: 1600px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
