@@ -26,3 +26,13 @@
         padding: 0.5rem 2rem;
     }
 }
+
+@media (max-width: 800px) {
+    .contact-form {
+        &__btn {
+            flex-grow: 1;
+            padding: 1rem;
+            width: 100%;
+        }
+    }
+}

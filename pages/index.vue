@@ -60,7 +60,7 @@
     <!-- About Section -->
     <section class="section landing-about">
       <div class="container">
-        <AboutSection />  
+        <AboutSection class="section__header" />  
       </div>
     </section>
     <!-- About Section End -->

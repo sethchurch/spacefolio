@@ -46,7 +46,7 @@ export default {
         display: flex;
         justify-self: center;
         align-items: center;
-        gap: 3rem;
+        gap: 3em;
 
         &--flip {
             text-align: right;
@@ -60,28 +60,28 @@ export default {
                 }
                 &__title {
                     &:after {
-                        margin-left: calc(100% - 4rem);
+                        margin-left: calc(100% - 4em);
                     }
                 }
             }
         }
         
         &__title {
-            font-size: 2rem;
-            margin: 1rem 0;
+            font-size: 2em;
+            margin: 1em 0;
             &:after {
                 content: ' ';
                 display: block;
-                height: 0.4rem;
-                width: 4rem;
+                height: 0.4em;
+                width: 4em;
                 background: $orange;
-                margin: 0.5rem 0;
+                margin: 0.5em 0;
             }
         }
 
         &__container { 
-            width: 12rem;
-            height: 12rem;
+            width: 12em;
+            height: 12em;
             border-radius: 100%;
             position: relative;
             flex-shrink: 0;
@@ -114,19 +114,19 @@ export default {
 
                  & .portfolio-planet__container {
                     top: 0;
-                    border-radius: 0.5rem;
-                    height: 18rem;
+                    border-radius: 0.5em;
+                    height: 18em;
                     background: 0;
                     &:after { 
-                        border-radius: 0.5rem;
+                        border-radius: 0.5em;
                         opacity: 0.1;
                     }
                 }
             }
 
             &--planet {
-                width: 18rem;
-                height: 18rem;
+                width: 18em;
+                height: 18em;
 
                 &:before {
                     content: ' ';
@@ -164,8 +164,8 @@ export default {
             left: 50%;
             transform: translateX(-50%) translateY(-50%) scale(0.5);
             text-align: center;
-            height: 5rem;
-            width: 5rem;
+            height: 5em;
+            width: 5em;
             border-radius: 100%;
             border: 0;
             opacity: 0;
@@ -174,13 +174,13 @@ export default {
 
         &__skills {
             display: flex;
-            gap: 0 0.5rem; 
+            gap: 0 0.5em; 
         }
 
         &__skill-pill {
-            padding: 0.25rem 1rem;
+            padding: 0.25em 1em;
             border: 3px $darkBlue solid;
-            border-radius: 100rem;
+            border-radius: 100em;
         }
 
         &__img {
@@ -196,8 +196,8 @@ export default {
 
         &__btn {
             border: 0;
-            padding: 0.5rem 2rem;
-            font-size: 1rem;
+            padding: 0.5em 2em;
+            font-size: 1em;
         }
         
     }
@@ -208,7 +208,8 @@ export default {
             text-align: center;
             justify-content: center;
             align-items: center;
-            margin-bottom: 3rem;
+            margin-bottom: 3em;
+            gap: 1rem;
 
             &--flip {
                 .portfolio-planet {
@@ -217,7 +218,7 @@ export default {
                     }
                     &__title {
                         &:after {
-                            margin: 0.5rem auto;
+                            margin: 0.5em auto;
                         }
                     }
                 }
@@ -227,10 +228,10 @@ export default {
                 &:after {
                     content: ' ';
                     display: block;
-                    height: 0.4rem;
-                    width: 4rem;
+                    height: 0.4em;
+                    width: 4em;
                     background: $orange;
-                    margin: 0.5rem auto;
+                    margin: 0.5em auto;
                     
                 }
             }
@@ -242,6 +243,21 @@ export default {
             &--flip {
                 text-align: center;
                 flex-direction: column;
+                width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .portfolio-planet {
+            &__title {
+                margin: 1rem 0.5rem;
+                &:after {
+                    height: 0.2em;
+                }
+            }
+            &__skill-pill {
+                font-size: 0.9rem;
             }
         }
     }

@@ -116,7 +116,6 @@
 }
 
 .landing-contact {
-    // border-top: 5px solid #1F3A56;
     background: #151C22;
     &__form {
        width: 100%;
@@ -144,5 +143,34 @@
         &__work-btn {
             display: none;
         }
+    }
+}
+
+@media (max-width: 800px) {
+    .landing {
+        br {
+            display: none;
+        }
+        text-align: center;
+        min-height: auto;
+        .container {
+            padding: 1rem;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+        &__header {
+            align-items: center;
+        }
+        &__link {
+            align-self: center;
+        }
+    
+    }
+    .section__header {
+        text-align: center;
+    }
+    .section {
+        padding: 1rem 1.5rem;
     }
 }
