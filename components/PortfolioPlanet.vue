@@ -49,7 +49,7 @@ export default {
         }
     },
     mounted: function() {
-        this.addAnimationObserver()
+        this.addAnimationObserver();
     }
 }
 </script>
