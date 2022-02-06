@@ -1,10 +1,11 @@
 <template>
   <div class="landing-container">
 
-    <div class="warning">This website is under active construction. Bear with me while the details are ironed out.</div>
+    <!-- <div class="warning">This website is under active construction. Bear with me while the details are ironed out.</div> -->
 
     <!-- Header -->
     <section class="section landing">
+      <canvas class="landing__canvas" id="landingCanvas" />
       <div class="container">
         <header class="landing__header">
           <h1 class="landing__header-text">Hey, <br>I'm Seth<span class="text--orange">.</span></h1>
@@ -92,7 +93,53 @@ export default {
 
     }
   },
-  mounted: () => {
+  mounted: function() {
+    const canvas = document.querySelector('#landingCanvas');
+    const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
+    renderer.setClearColor(0x0b0c0d); 
+
+    const fov = 75;
+    const aspect = 2; 
+    const near = 0.1;
+    const far = 5;
+    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+
+    camera.position.z = 2;
+    camera.position.x = -0.75;
+
+    const scene = new THREE.Scene();
+
+    const geometry = new THREE.OctahedronGeometry(1, 3);
+
+    const material = new THREE.MeshPhongMaterial({color: 0xd88b0f, flatShading: true}); 
+
+    const sphere = new THREE.Mesh(geometry, material);
+
+    const color = 0xFFFFFF;
+    const intensity = 1;
+    const light = new THREE.DirectionalLight(color, intensity);
+    light.position.set(-1, 2, 4);
+    scene.add(light);
+
+    scene.add(sphere);
+
+    renderer.setPixelRatio(window.devicePixelRatio * 3);
+    renderer.render(scene, camera);
+
+    function render(time) {
+      time *= 0.001;
+    
+      sphere.rotation.x = time;
+      sphere.rotation.y = time;
+
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      camera.updateProjectionMatrix();
+    
+      renderer.render(scene, camera);
+    
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
 
   }
 }

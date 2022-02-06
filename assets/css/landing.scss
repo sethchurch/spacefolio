@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'keyframes';
 
 .landing-container {
     flex-grow: 1;
@@ -11,8 +12,46 @@
     align-items: flex-start;
     position: relative;
     overflow: hidden;
-    background: darken($baseBG, 5%);
     min-height: 100vh;
+
+    &::before {
+        content: 'scroll down ――> ';
+        font-size: 1rem;
+        position: absolute;
+        bottom: 0.5rem;
+        left: 1rem;
+        writing-mode: vertical-rl;
+
+        animation-name: jump;
+        animation-timing-function: ease;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+
+    }
+
+    &::after {
+        content: 'scroll down ――> ';
+        font-size: 1rem;
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+        writing-mode: vertical-rl;
+        
+        animation-name: jump;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+
+    &__canvas {
+        position: absolute;
+        background-color: darken($baseBG, 5%);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
 
     &__header {
         display: flex;
@@ -28,6 +67,7 @@
         font-size: 3.5em;
         margin: 0;
         position: relative;
+        z-index: 2;
         &:after {
             content: ' ';
             display: block;
@@ -132,6 +172,19 @@
 
 
 @media (max-width: 1000px) {
+    .landing {
+        background-color: darken($baseBG, 5%);
+        &__header {
+            padding: 2rem 0 3rem 0;
+            font-size: 1.4rem;
+        }
+        &__header-text {
+            &:after {
+                width: 100%;
+            }
+        }
+        padding: 3rem;
+    }
     .landing-portfolio {
         padding-bottom: 3rem;
         &__header {
@@ -148,6 +201,15 @@
 
 @media (max-width: 800px) {
     .landing {
+        &::after {
+            font-size: 0.9rem;
+        }
+        &::before {
+            font-size: 0.9rem;
+        }
+        &__canvas {
+            display: none;
+        }
         br {
             display: none;
         }
