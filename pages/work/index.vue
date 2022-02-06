@@ -80,7 +80,17 @@
 
 <script>
 export default {
-  name: 'WorkPage'
+  name: 'WorkPage',
+  head: {
+    title: 'Seth Church | My Work',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Take a look around my work page. I\'ve worked on all kinds of projects over the years..'
+      }
+    ],
+  }
 }
 </script>
 

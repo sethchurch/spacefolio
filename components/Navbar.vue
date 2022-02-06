@@ -1,10 +1,10 @@
 <template>
     <nav class="nav">
-        <a href="/" class="nav__logo">
+        <a href="/" class="nav__logo" v-on:click="toggleMobileNav($event)">
             <img src="portfolio_logo.svg">
         </a>
 
-        <div class="nav__link-wrapper">
+        <div class="nav__link-wrapper" v-on:click="toggleMobileNav($event)">
             <nuxt-link class="nav__link" to="/"><p>Home</p></nuxt-link>
             <nuxt-link class="nav__link" to="/about"><p>About Me</p></nuxt-link>
             <!-- <nuxt-link class="nav__link" to="/skills"><p>My Skills</p></nuxt-link> -->

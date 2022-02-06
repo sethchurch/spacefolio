@@ -6,7 +6,17 @@
 
 <script>
 export default {
-  name: 'AboutPage'
+  name: 'AboutPage',
+  head: {
+    title: 'Seth Church | About Me',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Welcome to the about me page! Here\'s a list of my skills, including a variety of Web and Native technologies.'
+      }
+    ],
+  }
 }
 </script>
 

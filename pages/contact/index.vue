@@ -10,7 +10,17 @@
 
 <script>
 export default {
-  name: 'ContactPage'
+  name: 'ContactPage',
+  head: {
+    title: 'Seth Church | Contact Me',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Looking to get a project done? Need a new developer on your team? Shoot me a message.'
+      }
+    ],
+  }
 }
 </script>
 
