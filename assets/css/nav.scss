@@ -23,7 +23,7 @@
         padding: 0.75rem 1rem;
         border-radius: 1rem;
         margin: 0.75rem;
-
+        width: 75%;
         img {
             width: 100%;
         }
@@ -106,9 +106,12 @@
             border-radius: 0;
             margin: 0;
             height: 100%;
+            width: 3rem;
             img {
                 width: initial;
                 height: 100%;
+                display: block;
+                margin: 0 auto;
             }
         }
         &__link {
@@ -153,6 +156,7 @@
         &__logo {
             flex: 20%;
             position: relative;
+            width: initial;
             & img {
                 padding: 0.5rem;
             }
