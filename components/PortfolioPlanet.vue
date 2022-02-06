@@ -210,6 +210,7 @@ export default {
             align-items: center;
             margin-bottom: 3em;
             gap: 1rem;
+            font-size: inherit;
 
             &--flip {
                 .portfolio-planet {

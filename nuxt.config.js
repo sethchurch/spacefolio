@@ -41,7 +41,8 @@ export default {
   fontawesome: {
     component: 'fa',
     icons: {
-      solid: ['faHome', 'faCog', 'faBriefcase', 'faAlignLeft'],
+      solid: true,
+      // solid: ['faHome', 'faCog', 'faBriefcase', 'faAlignLeft'],
       // brands: ['faLinkedinIn', 'faGithub', 'faCodepen', 'faJs']
       brands: true
     }

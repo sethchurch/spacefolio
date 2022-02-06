@@ -25,9 +25,25 @@
                 <fa :icon="['fab', 'codepen']" />
             </a>
         </div>
+
+        <div id="mobileNavBtn" class="nav__mobile-link" v-on:click="toggleMobileNav($event)">
+            <fa class="nav__mobile-link--open" :icon="['fa', 'bars']" />
+            <!-- <fa class="nav__mobile-link--close" :icon="['fa', 'bars']" /> -->
+        </div>
     </nav>
 </template>
 
 <style lang="scss" scoped>
     @import '~/assets/css/nav';
 </style>
+
+
+<script>
+    export default {
+        methods: {
+            toggleMobileNav: () => {
+                document.querySelector('.nav').classList.toggle('nav--active');
+            }
+        }
+    }
+</script>

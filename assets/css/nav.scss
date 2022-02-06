@@ -33,9 +33,8 @@
         display: flex;
         flex-direction: column;
         font-size: 1.5rem;
-
+        gap: 1.5rem;
         a {
-            padding: 0.25rem;
             color: #d6dce4;
         }
     }
@@ -57,7 +56,6 @@
 
         p {
             border-radius: 100%;
-            margin: 1rem auto;
             color: white;
             text-align: center;
             display: flex;
@@ -72,6 +70,10 @@
         &:hover {
             background: lighten(#191B1E, 1%);
         }
+    }
+
+    &__mobile-link {
+        display: none;
     }
 }
 
@@ -139,21 +141,33 @@
 
 @media (max-width: 800px) {
     .nav {
-        padding-bottom: 2rem;
-        flex-direction: column;
+        padding: 0;
         height: 100%;
         width: 100%;
-        gap: 3rem;
-        top: -125%;
+        flex-direction: column;
+        top: -100%;
+        transition: top 0.5s cubic-bezier(.52,.29,.44,.84);
+        &--active {
+            top: 0%;
+        }
         &__logo {
-            padding: 1.5rem;
-            height: 15rem;
-            width: 100%;
-            img {
-                width: initial;
+            flex: 20%;
+            position: relative;
+            & img {
+                padding: 0.5rem;
+            }
+            &:before {
+                position: absolute;
+                content: ' ';
                 display: block;
-                margin: 0 auto;
+                width: 100vw;
                 height: 100%;
+                background: inherit;
+                top: 0;
+                z-index: -1;
+                transform: translateX(-50%);
+                left: 50%;
+                
             }
         }
         &__link {
@@ -163,6 +177,7 @@
             border-bottom: 1px solid rgb(5, 22, 41);
         }
         &__link-wrapper {
+            flex: 65%;
             flex-direction: column;
             width: 100%;
             height: 50%;
@@ -170,7 +185,19 @@
         &__social-links {
             flex-direction: row;
             font-size: 2rem;
-            gap: 1.5rem;
+            margin: 0;
+            align-items: center;
+            flex: 15%;
+        }
+        &__mobile-link {
+            display: block;
+            position: fixed !important;
+            top: 0;
+            right: 0;
+            font-size: 2.5rem;
+            z-index: 999;
+            margin: 0;
+            padding: 0.5rem 1rem 1rem 1rem;
         }
     }
 

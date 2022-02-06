@@ -1,11 +1,11 @@
 <template>
     <div class="about">
         <SectionBody class="about__body" title="About Me">
-        <p>I'm Gregory Seth Church, though most people just call me Seth. I'm an avid learner with a lot of passion for Software Development.</p>
+        <p>I'm Gregory Seth Church, though most people call me Seth. I'm an avid learner with a strong passion for Software Development.</p>
         <p>
-          I strive to make applications that are faster, more accessible, visually appealing, and easy to use.
+          I strive to make applications that are faster, more accessible, visually appealing, and easy to use. 
           I'm constantly looking for opportunities to improve my skills and learn new technologies. 
-          I'm never quite satisfied with learning the high-level concepts of a technology prefering to get a deep understanding of them. 
+          I'm never quite satisfied with knowing the high-level concepts of a technology, preferring to get a deep understanding of them. 
            <!-- in what I'm working with at the moment check the planet. -->
         </p>
         <p>Here are some of the technologies and software I've learned over the years:</p>
