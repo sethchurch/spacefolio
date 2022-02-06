@@ -11,7 +11,7 @@
 
 .btn {
     &--orange {
-        background-color: $orange;
+        background-color: darken($orange, 5%);
         color: white;
         &:hover {
             background-color: darken($orange, 10%);
@@ -21,7 +21,7 @@
 
     &--blue {
         @extend .btn--orange;
-        background-color: $blue;
+        background-color: darken($blue, 5%);;
         &:hover {
             background-color: darken($blue, 10%);
         }

@@ -1,5 +1,5 @@
 <template>
-    <div class="portfolio-planet" :class="flip ? 'portfolio-planet--flip' : ''">
+    <div class="portfolio-planet">
 
         <div class="portfolio-planet__head-wrapper portfolio-planet__head-wrapper--planet">
             <div class="portfolio-planet__container">
@@ -17,7 +17,7 @@
 
             <p class="portfolio-planet__desc">{{ desc }}</p>
 
-            <a target="_blank" :href="gitLink"><button class="portfolio-planet__btn btn--blue btn--rounded">Learn More</button></a>
+            <a target="_blank" :href="gitLink"><button class="portfolio-planet__btn btn--blue btn--rounded">View Project</button></a>
         </div>
 
     </div>
@@ -34,6 +34,22 @@ export default {
         imgAlt: String,
         flip: Boolean,
         planet: Boolean
+    },
+    methods: {
+        addAnimationObserver() {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('portfolio-planet--animated');
+                    }
+                });
+            });
+
+            observer.observe(this.$el);
+        }
+    },
+    mounted: function() {
+        this.addAnimationObserver()
     }
 }
 </script>
@@ -48,7 +64,34 @@ export default {
         align-items: center;
         gap: 3em;
 
-        &--flip {
+        // Animation Class Rules
+        &--animated {
+            &:nth-child(2n - 1) {
+                .portfolio-planet__wrapper {
+                    animation-name: fade-enter-right;
+                }
+            }
+
+            .portfolio-planet {
+                &__head-wrapper {
+                    animation-name: scale-in;
+                    animation-timing-function: cubic-bezier(.54,.14,.16,1.32);
+                    animation-duration: 0.5s;
+                    animation-iteration-count: 1;
+                }
+                &__wrapper {
+                    animation-name: fade-enter-left;
+                    animation-timing-function: ease;
+                    animation-fill-mode: forwards;
+                    animation-duration: 1s;
+                    animation-iteration-count: 1;
+                    animation-delay: 0.55s;
+                }
+
+            }
+        }
+
+        &:nth-child(2n - 1) {
             text-align: right;
             flex-direction: row-reverse;
             .portfolio-planet {
@@ -60,7 +103,7 @@ export default {
                 }
                 &__title {
                     &:after {
-                        margin-left: calc(100% - 4em);
+                        right: 0.1em;
                     }
                 }
             }
@@ -68,12 +111,13 @@ export default {
         
         &__title {
             font-size: 2em;
-            margin: 1em 0;
+            margin: 0 0 1.25em 0;
             &:after {
+                position: absolute;
                 content: ' ';
                 display: block;
-                height: 0.4em;
-                width: 4em;
+                height: 0.2em;
+                width: 3em;
                 background: $orange;
                 margin: 0.5em 0;
             }
@@ -104,25 +148,19 @@ export default {
             
         }
 
+        &__wrapper {
+            position: relative;
+
+            right: 10%;
+            opacity: 0;
+        }
+
         &__head-wrapper {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            &--square {
-
-                 & .portfolio-planet__container {
-                    top: 0;
-                    border-radius: 0.5em;
-                    height: 18em;
-                    background: 0;
-                    &:after { 
-                        border-radius: 0.5em;
-                        opacity: 0.1;
-                    }
-                }
-            }
 
             &--planet {
                 width: 18em;
@@ -212,39 +250,41 @@ export default {
             gap: 1rem;
             font-size: inherit;
 
-            &--flip {
+            &--animated {
+                .portfolio-planet {
+                    &__wrapper {
+                        left: 0;
+                        animation-name: fade-enter-up !important;
+                        animation-duration: 0.75s;
+                    }
+
+                }
+            }
+
+            &:nth-child(2n - 1) {
+                text-align: center;
+                flex-direction: column;
+                width: 100%;
                 .portfolio-planet {
                     &__wrapper {
                         align-items: center;
-                    }
-                    &__title {
-                        &:after {
-                            margin: 0.5em auto;
-                        }
                     }
                 }
             }
 
             &__title {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 &:after {
-                    content: ' ';
-                    display: block;
-                    height: 0.4em;
-                    width: 4em;
-                    background: $orange;
-                    margin: 0.5em auto;
-                    
+                    position: relative;
+                    margin-bottom: 0;
                 }
             }
 
             &__skills {
                 justify-content: center;
-            }
-
-            &--flip {
-                text-align: center;
-                flex-direction: column;
-                width: 100%;
             }
         }
     }

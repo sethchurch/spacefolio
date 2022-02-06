@@ -23,7 +23,7 @@
             <p>Here's a few highlights from projects I've worked on over the years. Interested in seeing more? Check out <a class="section__work-link" href='/work'>my work</a> page.</p>
           </SectionBody>
           
-          <a href="/work" class="landing-portfolio__work-btn btn--orange btn--outline">See More!</a>
+          <a href="/work" class="landing-portfolio__work-btn btn--orange btn--outline">See more</a>
         </div>
 
         <PortfolioPlanet 
@@ -42,7 +42,6 @@
           desc="A Discord.JS application designed to maintain and organize inventory for a Dungeon and Dragons community server. Programmed entirely in vanilla javascript and hosted on Netlify with a MongoDB database hosted on mLab." 
           imgSrc="https://camo.githubusercontent.com/074efab13f1e347846539e047ac1cd10644b19bc611ed15149e7aec0df876312/68747470733a2f2f692e696d6775722e636f6d2f4b4b6f657268622e706e67"  
           gitLink="https://github.com/iEnder/Discord5eArmory" 
-          :flip="true" 
         />
 
         <PortfolioPlanet 
@@ -87,7 +86,15 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  methods: {
+    addAnimation() {
+
+    }
+  },
+  mounted: () => {
+
+  }
 }
 </script>
 
