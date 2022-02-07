@@ -21,6 +21,7 @@ body {
     display: flex;
     padding-left: 6rem;
     position:relative;
+    overflow-x: hidden;
 }
 
 .container > section, .main-container > main {
