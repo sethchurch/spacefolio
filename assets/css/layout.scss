@@ -1,9 +1,12 @@
+@import '~/assets/css/keyframes';
+
 .section-body {
     &__title {
         font-size: 3rem;
         margin: 0;
         margin-bottom: 1rem;
     }
+
     &__slot {
         margin: 0;
         margin-bottom: 2rem;

@@ -94,26 +94,42 @@ export default {
     }
   },
   mounted: function() {
+
+    let mouse = new THREE.Vector2();
+
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+    function onDocumentMouseMove(event) {
+        event.preventDefault();
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    }
+
     const canvas = document.querySelector('#landingCanvas');
     const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
+
     renderer.setClearColor(0x0b0c0d); 
 
     const fov = 75;
     const aspect = 2; 
     const near = 0.1;
-    const far = 5;
+    const far = 10;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
-    camera.position.z = 2;
-    camera.position.x = -0.75;
+    camera.position.z = 5.5;
+    camera.position.x = -2;
 
     const scene = new THREE.Scene();
 
-    const geometry = new THREE.OctahedronGeometry(1, 3);
+    const geometry = new THREE.OctahedronGeometry(2.75, 2);
+    const geometry2 = new THREE.OctahedronGeometry(1.5, 3);
 
-    const material = new THREE.MeshPhongMaterial({color: 0xd88b0f, flatShading: true}); 
+    const material = new THREE.MeshBasicMaterial({color: 0xd88b0f, wireframe: true}); 
+    const material2 = new THREE.MeshBasicMaterial({color: 0x111111}); 
+    
 
     const sphere = new THREE.Mesh(geometry, material);
+    const sphere2 = new THREE.Mesh(geometry2, material2);
 
     const color = 0xFFFFFF;
     const intensity = 1;
@@ -122,15 +138,23 @@ export default {
     scene.add(light);
 
     scene.add(sphere);
+    scene.add(sphere2);
 
     renderer.setPixelRatio(window.devicePixelRatio * 3);
     renderer.render(scene, camera);
-
+  
     function render(time) {
       time *= 0.001;
     
-      sphere.rotation.x = time;
-      sphere.rotation.y = time;
+      sphere.rotation.x = time / 3;
+      sphere.rotation.y = time / 3;
+
+      sphere2.rotation.x = -time / 2;
+      sphere2.rotation.y = -time / 2;
+
+
+      sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y, sphere2.z), 0.01);
+      sphere2.position.lerp(new THREE.Vector3(mouse.x, mouse.y, sphere2.z), 0.2);
 
       camera.aspect = canvas.clientWidth / canvas.clientHeight;
       camera.updateProjectionMatrix();

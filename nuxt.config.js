@@ -11,7 +11,7 @@ export default {
     ],
     script: [
       {
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'
+        src: 'https://cdn.skypack.dev/three'
       }
     ],
     link: [

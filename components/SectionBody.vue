@@ -9,7 +9,23 @@
 
 <script>
 export default {
-    props: ['title']
+    props: ['title'],
+    methods: {
+        addAnimationObserver() {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-body--animated');
+                    }
+                });
+            });
+
+            observer.observe(this.$el);
+        }
+    },
+    mounted: function() {
+        this.addAnimationObserver();
+    }
 }
 </script>
 

@@ -13,6 +13,8 @@
     position: relative;
     overflow: hidden;
     min-height: 100vh;
+    background-color: darken($baseBG, 5%);
+    z-index: -2;
 
     &::before {
         content: 'scroll down ――> ';
@@ -22,11 +24,7 @@
         left: 1rem;
         writing-mode: vertical-rl;
 
-        animation-name: jump;
-        animation-timing-function: ease;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-
+        animation: jump 1s ease infinite;
     }
 
     &::after {
@@ -37,10 +35,7 @@
         right: 1rem;
         writing-mode: vertical-rl;
         
-        animation-name: jump;
-        animation-timing-function: ease-in-out;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
+        animation: jump 1s ease infinite;
     }
 
     &__canvas {
@@ -169,11 +164,15 @@
     background: darken($baseBG, 2%);
 }
 
-
+.section-body {
+    &--animated {
+        opacity: 0;
+        animation: fade-enter-down ease-out 0.5s 1 forwards 0.2s;
+    }
+}
 
 @media (max-width: 1000px) {
     .landing {
-        background-color: darken($baseBG, 5%);
         &__header {
             padding: 2rem 0 3rem 0;
             font-size: 1.4rem;

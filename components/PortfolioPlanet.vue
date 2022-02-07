@@ -74,18 +74,14 @@ export default {
 
             .portfolio-planet {
                 &__head-wrapper {
-                    animation-name: scale-in;
-                    animation-timing-function: cubic-bezier(.54,.14,.16,1.32);
-                    animation-duration: 0.5s;
-                    animation-iteration-count: 1;
+                    transform: scale(0);
+                    animation: scale-in cubic-bezier(.54,.14,.16,1.32) 0.5s 1 forwards 0.1s;
                 }
+                
                 &__wrapper {
-                    animation-name: fade-enter-left;
-                    animation-timing-function: ease;
-                    animation-fill-mode: forwards;
-                    animation-duration: 1s;
-                    animation-iteration-count: 1;
-                    animation-delay: 0.55s;
+                    opacity: 0;
+                    transform: translate(10%);
+                    animation: fade-enter-left ease 1s 1 forwards 0.65s;
                 }
 
             }
@@ -150,9 +146,6 @@ export default {
 
         &__wrapper {
             position: relative;
-
-            right: 10%;
-            opacity: 0;
         }
 
         &__head-wrapper {
