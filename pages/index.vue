@@ -208,7 +208,7 @@ export default {
         let ringArray = [];
 
         for (let i = 2; i < n + 2; i++) {
-          const path = new CustomCircleCurve( i + (0.5 * i));
+          const path = new CustomCircleCurve( i + (i * (i / 5)));
           const geometry = new THREE.TubeGeometry( path, 64, 0.01, 8, false );
           const material = new THREE.MeshBasicMaterial({color: 0x1F3B58}); 
           const ring = new THREE.Mesh( geometry, material);
@@ -224,14 +224,16 @@ export default {
 
       const rings = getRingList(10);
 
-      const geometry = new THREE.SphereGeometry(1.5, 30, 30);
+      const geometry = new THREE.SphereGeometry(1.4, 25, 25);
       const material = new THREE.MeshBasicMaterial({color: 0xd88b0f}); 
       const sphere = new THREE.Mesh( geometry, material);
+      sphere.geometry.computeVertexNormals(true);
 
-      sphere.rotation.x = 90;
+      sphere.rotation.x = 2.55;
+      sphere.rotation.y = 0.35;
 
       const light = new THREE.DirectionalLight( 0xFFFFFF, 1);
-      light.position.set(-1, 2, 4);
+      light.position.set(-2, 1, 5);
       scene.add(light);
 
       scene.add(sphere);
@@ -244,10 +246,10 @@ export default {
     
       function render(time) {
         time *= 0.001;
-
-        sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y, sphere.z), 0.02);
+        const bounce = Math.sin(time * 1.5) / 3;
+        sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y + bounce, sphere.z), 0.05);
         rings.forEach((ring, i) => {
-          ring.position.lerp(new THREE.Vector3(mouse.x, mouse.y, sphere.z), (0.005 * rings.length) / ((i + 1) * 2) );
+          ring.position.lerp(new THREE.Vector3(mouse.x, mouse.y + bounce, sphere.z), (0.005 * rings.length) / ((i + 1) * 2) );
         });
 
         camera.aspect = canvas.clientWidth / canvas.clientHeight;

@@ -46,6 +46,7 @@
 <style lang="scss" scoped>
 
   @import '~/assets/css/variables';
+  @import '~/assets/css/keyframes';
 
   .about {
     display: flex;
@@ -84,6 +85,7 @@
       align-items: center;
       text-align: center;
       position: relative;
+      // animation: flip 1s ease forwards;
     }
 
     &__skills-icon {

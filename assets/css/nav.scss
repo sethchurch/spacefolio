@@ -125,7 +125,7 @@
         }
         &__social-links {
             flex-direction: row;
-            gap: 0 0.5rem;
+            gap: 0 1.5rem;
         }
     }
 
@@ -167,6 +167,7 @@
             flex: 20%;
             position: relative;
             width: initial;
+            width: 20%;
             & img {
                 padding: 0.5rem;
             }
