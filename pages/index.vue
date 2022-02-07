@@ -1,7 +1,7 @@
 <template>
   <div class="landing-container">
 
-    <!-- <div class="warning">This website is under active construction. Bear with me while the details are ironed out.</div> -->
+    <div class="warning">This website is under active construction. Bear with me while the details are ironed out.</div>
 
     <!-- Header -->
     <section class="section landing">
@@ -91,81 +91,177 @@ import * as THREE from 'three';
 export default {
   name: 'IndexPage',
   methods: {
-    addAnimation() {
+    generateScene1() {
+      let mouse = new THREE.Vector2();
 
+      document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+      function onDocumentMouseMove(event) {
+          event.preventDefault();
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      }
+
+      const canvas = document.querySelector('#landingCanvas');
+      const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
+
+      renderer.setClearColor(0x0b0c0d); 
+
+      const fov = 75;
+      const aspect = 2; 
+      const near = 0.1;
+      const far = 100;
+      const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+
+      camera.position.z = 5.5;
+      camera.position.x = -2;
+
+      const scene = new THREE.Scene();
+
+      const geometry = new THREE.OctahedronGeometry(2.75, 2);
+      const geometry2 = new THREE.OctahedronGeometry(1.5, 3);
+
+      const material = new THREE.MeshBasicMaterial({color: 0xd88b0f, wireframe: true}); 
+      const material2 = new THREE.MeshBasicMaterial({color: 0x111111}); 
+      
+
+      const sphere = new THREE.Mesh(geometry, material);
+      const sphere2 = new THREE.Mesh(geometry2, material2);
+
+      const color = 0xFFFFFF;
+      const intensity = 1;
+      const light = new THREE.DirectionalLight(color, intensity);
+      light.position.set(-1, 2, 4);
+      scene.add(light);
+
+      scene.add(sphere);
+      scene.add(sphere2);
+
+      renderer.setPixelRatio(window.devicePixelRatio * 5);
+      renderer.render(scene, camera);
+    
+      function render(time) {
+        time *= 0.001;
+      
+        sphere.rotation.x = time / 3;
+        sphere.rotation.y = time / 3;
+
+        sphere2.rotation.x = -time / 2;
+        sphere2.rotation.y = -time / 2;
+
+
+        sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y + Math.sin(time * 2) * 0.75, sphere2.z), 0.01);
+        sphere2.position.lerp(new THREE.Vector3(mouse.x, mouse.y + Math.sin(time * 2) * 0.5, sphere2.z), 0.2)
+
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+      
+        renderer.render(scene, camera);
+      
+        requestAnimationFrame(render);
+      }
+      requestAnimationFrame(render);
+    },
+    generateScene2() {
+      let mouse = new THREE.Vector2();
+
+      document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+      function onDocumentMouseMove(event) {
+          event.preventDefault();
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      }
+
+      const canvas = document.querySelector('#landingCanvas');
+      const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
+
+      renderer.setClearColor(0x0b0c0d); 
+      const camera = new THREE.PerspectiveCamera( 75, 2, 0.1, 50);
+
+      camera.position.z = 5;
+      camera.position.x = -2;
+
+      const scene = new THREE.Scene();
+
+
+      class CustomCircleCurve extends THREE.Curve {
+
+        constructor( scale = 1 ) {
+          super();
+          this.scale = scale;
+        }
+
+        getPoint( t, optionalTarget = new THREE.Vector3() ) {
+          const tx = Math.cos( 2 * Math.PI * t );
+          const ty = Math.sin( 2 * Math.PI * t );
+          const tz = 0;
+          return optionalTarget.set( tx, ty, tz ).multiplyScalar( this.scale );
+        }
+
+      }
+
+      // Int -> THREE.Mesh[]
+      // produces a number of rings based on the given int
+
+      const getRingList = n => {
+        let ringArray = [];
+
+        for (let i = 2; i < n + 2; i++) {
+          const path = new CustomCircleCurve( i + (0.5 * i));
+          const geometry = new THREE.TubeGeometry( path, 64, 0.01, 8, false );
+          const material = new THREE.MeshBasicMaterial({color: 0x1F3B58}); 
+          const ring = new THREE.Mesh( geometry, material);
+
+          ring.rotation.x = 2.55;
+          ring.rotation.y = 0.35;
+
+          ringArray.push(ring);
+        }
+
+        return ringArray;
+      }
+
+      const rings = getRingList(10);
+
+      const geometry = new THREE.SphereGeometry(1.5, 30, 30);
+      const material = new THREE.MeshBasicMaterial({color: 0xd88b0f}); 
+      const sphere = new THREE.Mesh( geometry, material);
+
+      sphere.rotation.x = 90;
+
+      const light = new THREE.DirectionalLight( 0xFFFFFF, 1);
+      light.position.set(-1, 2, 4);
+      scene.add(light);
+
+      scene.add(sphere);
+      rings.forEach(ring => {
+        scene.add(ring);
+      });
+
+      renderer.setPixelRatio(window.devicePixelRatio * 4);
+      renderer.render(scene, camera);
+    
+      function render(time) {
+        time *= 0.001;
+
+        sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y, sphere.z), 0.02);
+        rings.forEach((ring, i) => {
+          ring.position.lerp(new THREE.Vector3(mouse.x, mouse.y, sphere.z), (0.005 * rings.length) / ((i + 1) * 2) );
+        });
+
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(render);
+      }
+      requestAnimationFrame(render);
     }
   },
   mounted: function() {
-    let mouse = new THREE.Vector2();
-
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-    function onDocumentMouseMove(event) {
-        event.preventDefault();
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    }
-
-    const canvas = document.querySelector('#landingCanvas');
-    const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
-
-    renderer.setClearColor(0x0b0c0d); 
-
-    const fov = 75;
-    const aspect = 2; 
-    const near = 0.1;
-    const far = 10;
-    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-
-    camera.position.z = 5.5;
-    camera.position.x = -2;
-
-    const scene = new THREE.Scene();
-
-    const geometry = new THREE.OctahedronGeometry(2.75, 2);
-    const geometry2 = new THREE.OctahedronGeometry(1.5, 3);
-
-    const material = new THREE.MeshBasicMaterial({color: 0xd88b0f, wireframe: true}); 
-    const material2 = new THREE.MeshBasicMaterial({color: 0x111111}); 
-    
-
-    const sphere = new THREE.Mesh(geometry, material);
-    const sphere2 = new THREE.Mesh(geometry2, material2);
-
-    const color = 0xFFFFFF;
-    const intensity = 1;
-    const light = new THREE.DirectionalLight(color, intensity);
-    light.position.set(-1, 2, 4);
-    scene.add(light);
-
-    scene.add(sphere);
-    scene.add(sphere2);
-
-    renderer.setPixelRatio(window.devicePixelRatio * 3);
-    renderer.render(scene, camera);
-  
-    function render(time) {
-      time *= 0.001;
-    
-      sphere.rotation.x = time / 3;
-      sphere.rotation.y = time / 3;
-
-      sphere2.rotation.x = -time / 2;
-      sphere2.rotation.y = -time / 2;
-
-
-      sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y, sphere2.z), 0.01);
-      sphere2.position.lerp(new THREE.Vector3(mouse.x, mouse.y, sphere2.z), 0.2);
-
-      camera.aspect = canvas.clientWidth / canvas.clientHeight;
-      camera.updateProjectionMatrix();
-    
-      renderer.render(scene, camera);
-    
-      requestAnimationFrame(render);
-    }
-    requestAnimationFrame(render);
-
+    // this.generateScene1();
+    this.generateScene2();
   }
 }
 </script>
