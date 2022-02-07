@@ -37,17 +37,18 @@ body {
 }
 
 .warning {
-    z-index: 999;
-    height: 50px;
+    left: 0;
+    z-index: 5;
     width: 100%;
-    display: flex;
-    background: rgba(122, 6, 6, 0.6);
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    height: 50px;
     padding:  1rem;
-    pointer-events: none;
+    display: flex;
     position: absolute;
+    text-align: center;
+    align-items: center;
+    pointer-events: none;
+    justify-content: center;
+    background: rgba(122, 6, 6, 0.6);
 }
 
 @media (max-width: 1300px) {

@@ -180,8 +180,10 @@ export default {
       const camera = new THREE.PerspectiveCamera( 75, 2, 0.1, 50);
 
       camera.position.z = 5;
-      camera.position.x = -2;
+      camera.position.x = 2;
+      camera.position.y = -3;
 
+      // camera.rotation.set(new Three.Vector3(50, 50, 50));
       const scene = new THREE.Scene();
 
 
@@ -213,9 +215,6 @@ export default {
           const material = new THREE.MeshBasicMaterial({color: 0x1F3B58}); 
           const ring = new THREE.Mesh( geometry, material);
 
-          ring.rotation.x = 2.55;
-          ring.rotation.y = 0.35;
-
           ringArray.push(ring);
         }
 
@@ -227,10 +226,10 @@ export default {
       const geometry = new THREE.SphereGeometry(1.4, 25, 25);
       const material = new THREE.MeshBasicMaterial({color: 0xd88b0f}); 
       const sphere = new THREE.Mesh( geometry, material);
-      sphere.geometry.computeVertexNormals(true);
 
-      sphere.rotation.x = 2.55;
-      sphere.rotation.y = 0.35;
+      const geometry2 = new THREE.SphereGeometry(0.4, 25, 25);
+      const material2 = new THREE.MeshBasicMaterial({color: 0xd88b0f}); 
+      const sphere2 = new THREE.Mesh( geometry2, material2);
 
       const light = new THREE.DirectionalLight( 0xFFFFFF, 1);
       light.position.set(-2, 1, 5);
@@ -240,18 +239,26 @@ export default {
       rings.forEach(ring => {
         scene.add(ring);
       });
-
+      
       renderer.setPixelRatio(window.devicePixelRatio * 4);
       renderer.render(scene, camera);
+
+      let offsetX = 1;
+      let offsetY = -3;
     
       function render(time) {
         time *= 0.001;
+
         const bounce = Math.sin(time * 1.5) / 3;
+
         sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y + bounce, sphere.z), 0.05);
+        camera.position.lerp(new THREE.Vector3(-mouse.x + offsetX, -mouse.y + bounce + offsetY, 5), 0.02);
         rings.forEach((ring, i) => {
-          ring.position.lerp(new THREE.Vector3(mouse.x, mouse.y + bounce, sphere.z), (0.005 * rings.length) / ((i + 1) * 2) );
+          ring.position.lerp(new THREE.Vector3(mouse.x, mouse.y + bounce, sphere.z), (0.005 * rings.length) / ((i + 1) * 2));
         });
 
+        camera.lookAt(new THREE.Vector3(sphere.position.x - 2, sphere.position.y + 1, sphere.position.z));
+        
         camera.aspect = canvas.clientWidth / canvas.clientHeight;
         camera.updateProjectionMatrix();
 
