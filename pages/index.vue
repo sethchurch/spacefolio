@@ -5,7 +5,6 @@
 
     <!-- Header -->
     <section class="section landing">
-      <canvas class="landing__canvas" id="landingCanvas" />
       <div class="container">
         <header class="landing__header">
           <h1 class="landing__header-text">Hey, <br>I'm Seth<span class="text--orange">.</span></h1>
@@ -13,6 +12,7 @@
           <a class="landing__link" href="/contact"><button class="landing__btn btn--orange btn--rounded">Contact Me!</button></a>
         </header>
       </div>
+      <canvas class="landing__canvas" id="landingCanvas" />
     </section>
     <!-- Header End -->
 

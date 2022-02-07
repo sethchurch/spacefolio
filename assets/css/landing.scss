@@ -13,8 +13,6 @@
     position: relative;
     overflow: hidden;
     min-height: 100vh;
-    background-color: darken($baseBG, 5%);
-    z-index: -2;
 
     &::before {
         content: 'scroll down ――> ';
@@ -43,15 +41,19 @@
         background-color: darken($baseBG, 5%);
         top: 0;
         left: 0;
+        z-index: -1;
         width: 100%;
         height: 100%;
-        z-index: -1;
     }
 
     &__header {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        opacity: 0;
+        margin-top: 2rem;
+        animation: fade-enter-right 1s ease 0s 1 forwards;
     }
 
     &__header-wrapper {
@@ -63,7 +65,7 @@
         margin: 0;
         position: relative;
         z-index: 2;
-        &:after {
+        &::before {
             content: ' ';
             display: block;
             position: absolute;
@@ -97,7 +99,6 @@
         top: -110rem;
         left:-15rem;
         width: 175rem;
-        z-index: -1;
     }
 }
 
@@ -178,7 +179,7 @@
             font-size: 1.4rem;
         }
         &__header-text {
-            &:after {
+            &::before {
                 width: 100%;
             }
         }

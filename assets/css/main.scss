@@ -6,7 +6,7 @@
 }
 
 html {
-    background-color: $baseBG;
+    background-color: darken($baseBG, 3%);
 }
 
 body {
