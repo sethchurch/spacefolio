@@ -86,6 +86,8 @@
 </template>
 
 <script>
+import * as THREE from 'three';
+
 export default {
   name: 'IndexPage',
   methods: {
@@ -94,7 +96,6 @@ export default {
     }
   },
   mounted: function() {
-
     let mouse = new THREE.Vector2();
 
     document.addEventListener('mousemove', onDocumentMouseMove, false);
