@@ -209,8 +209,8 @@ export default {
         let ringArray = [];
 
         for (let i = 2; i < n + 2; i++) {
-          const path = new CustomCircleCurve( i + (i * (i / 5)));
-          const geometry = new THREE.TubeGeometry( path, 64, 0.01, 8, false );
+          const path = new CustomCircleCurve(i + (i * (i / 5)));
+          const geometry = new THREE.TubeGeometry( path, 96, 0.015, 8, false );
           const material = new THREE.MeshBasicMaterial({color: 0x1F3B58}); 
           const ring = new THREE.Mesh( geometry, material);
 
@@ -222,7 +222,7 @@ export default {
 
       const rings = getRingList(15);
 
-      const geometry = new THREE.SphereGeometry(1.4, 25, 25);
+      const geometry = new THREE.SphereGeometry(1.4, 30, 30);
       const material = new THREE.MeshBasicMaterial({color: 0xd88b0f}); 
       const sphere = new THREE.Mesh( geometry, material);
 
@@ -249,7 +249,7 @@ export default {
       function render(time) {
         time *= 0.001;
 
-        const bounce = Math.sin(time * 1.5) / 3;
+        const bounce = Math.sin(time * 1.5) / 2;
 
         sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y + bounce, sphere.z), 0.05);
         camera.position.lerp(new THREE.Vector3(-mouse.x + offsetX, -mouse.y + bounce + offsetY, 5), 0.02);
@@ -275,6 +275,18 @@ export default {
   mounted: function() {
     // this.generateScene1();
     this.generateScene2();
+  },
+  head() {
+    return {
+      title: 'Seth Church | Contact Me',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Hey There! I\'m a Creative Software Developer with a passion for designing and building applications. Looking to collab? Check out my portfolio and get in touch.'
+        }
+      ],
+    }
   }
 }
 </script>
