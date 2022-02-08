@@ -177,7 +177,7 @@ export default {
       const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
 
       renderer.setClearColor(0x0b0c0d); 
-      const camera = new THREE.PerspectiveCamera( 75, 2, 0.1, 50);
+      const camera = new THREE.PerspectiveCamera( 75, 2, 0.1, 100);
 
       camera.position.z = 5;
       camera.position.x = 2;

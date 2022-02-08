@@ -1,7 +1,8 @@
 <template>
     <div class="about">
       <SectionBody class="about__body" title="About Me">
-        <p>I'm Gregory Seth Church, though most people call me Seth. I'm an avid learner with a strong passion for Software Development.</p>
+        <!-- <p>I'm Gregory Seth Church, though most people call me Seth. I'm an avid learner with a strong passion for Software Development.</p> -->
+        <p>I'm Seth Church, I'm an avid learner with a strong passion for Software Development.</p>
         <p>
           I strive to make applications that are faster, more accessible, visually appealing, and easy to use. 
           I'm constantly looking for opportunities to improve my skills and learn new technologies. 

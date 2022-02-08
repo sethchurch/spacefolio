@@ -174,13 +174,6 @@
     background: darken($baseBG, 2%);
 }
 
-.section-body {
-    &--animated {
-        opacity: 0;
-        animation: fade-enter-down ease-out 0.5s 1 forwards 0.2s;
-    }
-}
-
 @media (max-width: 1000px) {
     .landing {
         &__header {

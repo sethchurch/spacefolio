@@ -13,3 +13,10 @@
         width: 100%;
     }
 }
+
+.landing-container .section-body {
+    &--animated {
+        opacity: 0;
+        animation: fade-enter-down ease-out 0.5s 1 forwards 0.2s;
+    }
+}
