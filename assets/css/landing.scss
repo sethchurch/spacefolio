@@ -21,6 +21,7 @@
         bottom: 0.5rem;
         left: 1rem;
         writing-mode: vertical-rl;
+        z-index: 3;
 
         color: $orange;
         font-weight: 600;
@@ -36,6 +37,7 @@
         bottom: 0.5rem;
         right: 1rem;
         writing-mode: vertical-rl;
+        z-index: 3;
 
         color: $blue;
         font-weight: 600;
