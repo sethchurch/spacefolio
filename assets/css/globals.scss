@@ -9,43 +9,46 @@
     }
 }
 
-.btn {
+.btn { 
     &--orange {
         background-color: darken($orange, 3%);
         color: white;
         &:hover {
+
             background-color: darken($orange, 10%);
-            color: white;
+
         }
     }
-
     &--blue {
         @extend .btn--orange;
         background-color: darken($blue, 3%);
         &:hover {
+
             background-color: darken($blue, 10%);
+
         }
     }
-
     &--outline {
         background: transparent;
+
         &.btn--orange {
             color: $orange;
             border: 2px solid $orange !important;
             &:hover {
-                background-color: $orange;
+                background-color: darken($orange, 5%);
                 color: white;
             }
         }
-        
+
         &.btn--blue {
             color: $blue;
             border: 2px solid $blue !important;
             &:hover {
-                background-color: $blue;
+                background-color: darken($blue, 5%);
                 color: white;
             }
         }
+
     }
 
     &--rounded {

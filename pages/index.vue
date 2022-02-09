@@ -8,7 +8,7 @@
       <div class="container">
         <header class="landing__header">
           <h1 class="landing__header-text">Hey, <br>I'm Seth<span class="text--orange">.</span></h1>
-          <h2 class="landing__subheader text--blue">Software Engineer</h2>
+          <h2 class="landing__subheader text--blue">{{ this.jobTitle }}</h2>
           <a class="landing__link" href="/contact"><button class="landing__btn btn--orange btn--outline btn--rounded">Contact Me!</button></a>
         </header>
       </div>
@@ -270,15 +270,28 @@ export default {
         requestAnimationFrame(render);
       }
       requestAnimationFrame(render);
+    },
+    getJobTitle() {
+      const index = Math.floor(Math.random() * this.titleList.length);
+      this.jobTitle = this.titleList[index];
     }
   },
   mounted: function() {
     // this.generateScene1();
     this.generateScene2();
+    // let jobTitalInterval = setInterval(() => {
+    //   this.getJobTitle()
+    // }, 30000)
+  },
+  data() {
+    return {
+      jobTitle: 'Software Engineer',
+      titleList: ['Software Engineer', 'Web Developer', 'Creative Developer', 'Software Developer', 'D&D Enthusiast']
+    }
   },
   head() {
     return {
-      title: 'Seth Church | Contact Me',
+      title: `Seth Church | ${ this.jobTitle }`,
       meta: [
         {
           hid: 'description',
