@@ -25,7 +25,7 @@
             position: relative;
             transition: transform 1s cubic-bezier(.54,.14,.16,1.32);
             background: lighten($baseBG, 10%);
-            perspective: 500px;
+            perspective: 7rem;
             transform-style: preserve-3d;
             height: 7em;
             width: 7em;

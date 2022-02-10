@@ -1,8 +1,5 @@
 <template>
   <div class="landing-container">
-
-    <div class="warning">This website is under active construction. Bear with me while the details are ironed out.</div>
-
     <!-- Header -->
     <section class="section landing">
       <div class="container">
