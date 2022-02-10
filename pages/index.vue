@@ -91,6 +91,7 @@ import * as THREE from 'three';
 export default {
   name: 'IndexPage',
   methods: {
+    // THREE.JS Landing Page Scenes
     generateScene1() {
       let mouse = new THREE.Vector2();
 
@@ -179,11 +180,8 @@ export default {
       renderer.setClearColor(0x0b0c0d); 
       const camera = new THREE.PerspectiveCamera( 75, 2, 0.1, 100);
 
-      camera.position.z = 5;
-      camera.position.x = 2;
-      camera.position.y = -3;
+      camera.position.set(2, -3, 5)
 
-      // camera.rotation.set(new Three.Vector3(50, 50, 50));
       const scene = new THREE.Scene();
 
       class CustomCircleCurve extends THREE.Curve {
@@ -202,40 +200,45 @@ export default {
 
       }
 
-      // Int -> THREE.Mesh[]
+      // Int -> THREE.Mesh[] Int[]
       // produces a number of rings based on the given int
 
       const getRingList = n => {
         let ringArray = [];
+        let ringRadArray = [];
 
         for (let i = 2; i < n + 2; i++) {
-          const path = new CustomCircleCurve(i + (i * (i / 5)));
+          const radius = i + (i * (i / 5));
+
+          const path = new CustomCircleCurve(radius);
           const geometry = new THREE.TubeGeometry( path, 96, 0.015, 8, false );
           const material = new THREE.MeshBasicMaterial({color: 0x1F3B58}); 
           const ring = new THREE.Mesh( geometry, material);
 
+          ringRadArray.push(radius);
           ringArray.push(ring);
         }
 
-        return ringArray;
+        return [ringArray, ringRadArray];
       }
 
-      const rings = getRingList(15);
-
+      const [rings, ringsRadius] = getRingList(15);
+      
       const geometry = new THREE.SphereGeometry(1.4, 30, 30);
       const material = new THREE.MeshBasicMaterial({color: 0xd88b0f}); 
       const sphere = new THREE.Mesh( geometry, material);
 
-      // const geometry2 = new THREE.SphereGeometry(0.4, 25, 25);
-      // const material2 = new THREE.MeshBasicMaterial({color: 0x1F3B58}); 
-      // const sphere2 = new THREE.Mesh( geometry2, material2);
+      const geometry2 = new THREE.SphereGeometry(0.25, 30, 30);
+      const material2 = new THREE.MeshBasicMaterial({color: 0x163E66}); 
+      const sphere2 = new THREE.Mesh( geometry2, material2);
 
       const light = new THREE.DirectionalLight( 0xFFFFFF, 1);
       light.position.set(-2, 1, 5);
       scene.add(light);
 
       scene.add(sphere);
-      // scene.add(sphere2);
+      scene.add(sphere2);
+
       rings.forEach(ring => {
         scene.add(ring);
       });
@@ -244,22 +247,27 @@ export default {
       renderer.render(scene, camera);
 
       let offsetX = 1;
-      let offsetY = -3;
+      let offsetY = -4;
     
       function render(time) {
         time *= 0.001;
 
         const bounce = Math.sin(time * 1.5) / 2;
 
-        sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y + bounce, sphere.z), 0.05);
-        camera.position.lerp(new THREE.Vector3(-mouse.x + offsetX, -mouse.y + bounce + offsetY, 5), 0.02);
+        sphere.position.lerp(new THREE.Vector3(sphere.x, sphere.y, mouse.y + bounce), 0.05);
+
+        camera.position.lerp(new THREE.Vector3(-mouse.x + offsetX, -mouse.y + bounce + offsetY, camera.position.z), 0.02);
+
+
         rings.forEach((ring, i) => {
-          ring.position.lerp(new THREE.Vector3(mouse.x, mouse.y + bounce, sphere.z), (0.005 * rings.length) / ((i + 1) * 2));
-          // if(i == 0) {
-          //   sphere2.position.x = Math.cos(time) * 2.6;
-          //   sphere2.position.y = Math.sin(time) * 2.6;
-          // }
+          const LERP_SPEED = (0.005 * rings.length) / ((i + 1) * 2);
+
+          ring.position.lerp(new THREE.Vector3(ring.x, ring.y, mouse.y + bounce), LERP_SPEED);
+          if(i == 0) {
+            sphere2.position.lerp(new THREE.Vector3(Math.cos(time / 1.5) * ringsRadius[i], Math.sin(time / 1.5) * ringsRadius[i], mouse.y + bounce), LERP_SPEED);
+          }
         });
+
 
         camera.lookAt(new THREE.Vector3(sphere.position.x - 2, sphere.position.y + 1, sphere.position.z));
         
@@ -271,6 +279,19 @@ export default {
       }
       requestAnimationFrame(render);
     },
+
+    // Page Functions
+    updateMouse() {
+      const mouseEl = document.querySelector('#mouseEl');
+      document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+      function onDocumentMouseMove(event) {
+          event.preventDefault();
+          mouseEl.style.left = `${event.pageX}px`;
+          mouseEl.style.top = `${event.pageY}px`;
+      }
+    },
+    
     getJobTitle() {
       const index = Math.floor(Math.random() * this.titleList.length);
       this.jobTitle = this.titleList[index];
@@ -279,6 +300,7 @@ export default {
   mounted: function() {
     // this.generateScene1();
     this.generateScene2();
+    // this.updateMouse();
     // let jobTitalInterval = setInterval(() => {
     //   this.getJobTitle()
     // }, 30000)
