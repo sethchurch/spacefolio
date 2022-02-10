@@ -249,6 +249,9 @@ export default {
       let offsetX = 1;
       let offsetY = -4;
     
+      // start planet in correct position
+      sphere2.position.lerp(new THREE.Vector3(Math.cos(0)* ringsRadius[0], Math.sin(0) * ringsRadius[0], mouse.y), 1);
+
       function render(time) {
         time *= 0.001;
 
