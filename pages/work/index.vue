@@ -30,17 +30,17 @@
         <PortfolioDisplay 
           :skills="['MySQL', 'C#', 'Visual Studio']" 
           title="Client Scheduler" 
-          desc="A native android application developed in C# using the Xamarin Forms framework and designed to aid students to track their courses for a term and keep an eye on any upcoming due dates. It utilizes an SQLite database to store and organize user-relevant data and an interface that was written in XAML." 
+          desc="A C# scheduler application designed to manage multiple customers and their associated appointments." 
           imgSrc="https://camo.githubusercontent.com/c3754adcd690eabe6efbc8864a80f8b1a0eaf99b8d242409e1b857e23ee1a1f6/68747470733a2f2f692e696d6775722e636f6d2f4d764f506230372e706e67"  
-          gitLink="https://github.com/iEnder/Course-Tracker-Mobile" 
+          gitLink="https://github.com/iEnder/Client-Scheduler" 
         />
 
         <PortfolioDisplay 
-          :skills="['MySQL', 'C#', 'Visual Studio']" 
-          title="Client Scheduler" 
-          desc="A native android application developed in C# using the Xamarin Forms framework and designed to aid students to track their courses for a term and keep an eye on any upcoming due dates. It utilizes an SQLite database to store and organize user-relevant data and an interface that was written in XAML." 
+          :skills="['Node.JS', 'Pug', 'MongoDB']" 
+          title="Shouter" 
+          desc="Social media platform inspired by twitter built on NodeJS with the Express framework." 
           imgSrc="https://camo.githubusercontent.com/eb20edfe296460d3c5750a587398964cd59e5036983f7e2812d957fbad4487f7/68747470733a2f2f692e696d6775722e636f6d2f745769487746482e706e67"  
-          gitLink="https://github.com/iEnder/Course-Tracker-Mobile" 
+          gitLink="https://github.com/iEnder/Shouter" 
         />
         </section>
     

@@ -16,7 +16,6 @@
 
     .skill-card {
         display: flex;
-        perspective: 500px;
 
         &--loading .skill-card__inner {
             transform: rotateY(180deg);
@@ -25,13 +24,12 @@
         &__inner {
             position: relative;
             transition: transform 1s cubic-bezier(.54,.14,.16,1.32);
+            background: lighten($baseBG, 10%);
             transform-style: preserve-3d;
-            display: flex;
-            flex-direction: column;
             height: 7em;
             width: 7em;
             border-radius: 100%;
-            background: lighten($baseBG, 10%);
+            display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
