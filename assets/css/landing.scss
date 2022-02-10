@@ -47,7 +47,6 @@
 
     &__canvas {
         position: absolute;
-        // background-color: darken($baseBG, 5%);
         top: 0;
         left: 0;
         z-index: 1;
@@ -76,6 +75,11 @@
         margin: 0;
         position: relative;
         z-index: 2;
+    }
+
+    &__name {
+        position: relative;
+        margin: 0;
         &::before {
             content: ' ';
             display: block;
@@ -89,7 +93,7 @@
     }
     
     &__subheader {
-        font-size: 2em;
+        font-size: 0.6em;
         margin: 0;
         margin-bottom: 0.25em;
         font-weight: 700;
@@ -99,10 +103,6 @@
         font-size: 0.75em;
         padding: 0.4em 2em;
         border: 0;
-    }
-    
-    &__link {
-        align-self: flex-end;
     }
 
     &__sun {

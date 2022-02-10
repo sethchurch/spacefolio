@@ -7,7 +7,6 @@
         <div class="nav__link-wrapper" v-on:click="toggleMobileNav($event)">
             <nuxt-link class="nav__link" to="/"><p>Home</p></nuxt-link>
             <nuxt-link class="nav__link" to="/about"><p>About Me</p></nuxt-link>
-            <!-- <nuxt-link class="nav__link" to="/skills"><p>My Skills</p></nuxt-link> -->
             <nuxt-link class="nav__link" to="/work"><p>My Work</p></nuxt-link>
             <nuxt-link class="nav__link" to="/contact"><p>Contact</p></nuxt-link>
         </div>

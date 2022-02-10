@@ -4,9 +4,14 @@
     <section class="section landing">
       <div class="container">
         <header class="landing__header">
-          <h1 class="landing__header-text">Hey, <br>I'm Seth<span class="text--orange">.</span></h1>
-          <h2 class="landing__subheader text--blue">{{ this.jobTitle }}</h2>
-          <a class="landing__link" href="/contact"><button class="landing__btn btn--orange btn--outline btn--rounded">Contact Me!</button></a>
+          <h1 class="landing__header-text">
+            Hey, 
+            <br>
+            <span class="landing__name">I'm Seth<span class="text--orange">.</span></span>
+            <br> 
+            <div class="landing__subheader text--blue">{{ this.jobTitle }}</div>
+          </h1>
+          <a class="landing__link" href="/contact"><button class="landing__btn btn--orange btn--outline">Contact Me!</button></a>
         </header>
       </div>
       <canvas class="landing__canvas" id="landingCanvas" />
@@ -312,7 +317,7 @@ export default {
   },
   data() {
     return {
-      jobTitle: 'Software Engineer',
+      jobTitle: 'Web Developer',
       titleList: ['Software Engineer', 'Web Developer', 'Creative Developer', 'Software Developer', 'D&D Enthusiast']
     }
   },
