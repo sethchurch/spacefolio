@@ -7,15 +7,17 @@
           I strive to make applications that are faster, more accessible, visually appealing, and easy to use. 
           I'm constantly looking for opportunities to improve my skills and learn new technologies. 
           I'm never quite satisfied with knowing the high-level concepts of a technology, preferring to get a deep understanding of them. 
-           <!-- in what I'm working with at the moment check the planet. -->
         </p>
         <p>Here are some of the technologies and software I've learned over the years:</p>
+
+        <!-- Skills Divider -->
+
         <ul class="about__skills">
-          <li class="about__skills-item" v-for="skill in skills">
-            <i class="about__skills-icon" :class="skill.icon" />
-            <p class="about__skills-name" >{{ skill.name }}</p>
-          </li>
-        </ul>
+          <SkillCard v-for="skill in skills" :icon="skill.icon" :name="skill.name" :key="skill.name"/>
+        </ul> 
+
+        <!-- Skills Divider End -->
+
         <p>Are you looking to hire a developer? Looking to get something made? Need an opinion on a project? Don't hesitate to reach out to me on my <nuxt-link class="about__link" to="/contact">contact page.</nuxt-link></p>
       </SectionBody>
 
@@ -74,29 +76,6 @@
       flex-wrap: wrap;
       margin: 3rem 0;
     }
-
-    &__skills-item {
-      display: flex;
-      flex-direction: column;
-      height: 7em;
-      width: 7em;
-      border-radius: 100%;
-      background: lighten($baseBG, 10%);
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      // animation: flip 1s ease forwards;
-    }
-
-    &__skills-icon {
-      font-size: 3em;
-    }
-
-    &__skills-name {
-      margin: 0;
-      margin-top: 0.5em;
-    }
     
     &__planet {
         vertical-align: middle;
@@ -148,6 +127,39 @@ export default {
         { icon: 'devicon-xd-plain', name: 'Adobe XD' },
       ]
     }
+  },
+
+  methods: {
+    setupSkills() {
+      const cards = document.querySelectorAll('.skill-card');
+      cards.forEach(el => el.classList.add('skill-card--loading'));
+    },
+    
+    addSkillsObserver() {
+      const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  this.clearSkills();
+              }
+          });
+      });
+      observer.observe(this.$el);
+    },
+
+    clearSkills() {
+      const loadingCards = document.querySelectorAll('.skill-card--loading');
+
+      loadingCards.forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.remove('skill-card--loading');
+        }, (150 * i) + 200);
+      });
+    }
+  },
+
+  mounted() {
+   this.setupSkills(); 
+   this.addSkillsObserver();
   }
 }
 </script>

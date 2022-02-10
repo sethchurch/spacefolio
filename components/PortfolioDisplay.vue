@@ -68,7 +68,7 @@ export default {
             width: 100%;
             height: 100%;
             display: flex;
-            background: adjust-color($color: $blue, $alpha: -0.75);
+            background: adjust-color($color: $blue, $alpha: -0.95);
             display: flex;
             flex-direction: column;
             justify-content: center;

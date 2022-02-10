@@ -255,7 +255,7 @@ export default {
       function render(time) {
         time *= 0.001;
 
-        const bounce = Math.sin(time * 1.5) / 2;
+        const bounce = Math.sin(time / 5) / 3;
 
         sphere.position.lerp(new THREE.Vector3(sphere.x, sphere.y, mouse.y + bounce), 0.05);
 
