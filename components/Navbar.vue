@@ -1,7 +1,7 @@
 <template>
     <nav class="nav">
         <a href="/" class="nav__logo" v-on:click="toggleMobileNav($event)">
-            <img src="portfolio_logo.svg">
+            <img src="portfolio_logo.svg" alt="Seth's Logo">
         </a>
 
         <div class="nav__link-wrapper" v-on:click="toggleMobileNav($event)">
