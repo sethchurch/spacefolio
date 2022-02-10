@@ -232,7 +232,7 @@ export default {
       const material = new THREE.MeshBasicMaterial({color: 0xd88b0f}); 
       const sphere = new THREE.Mesh( geometry, material);
 
-      const geometry2 = new THREE.SphereGeometry(0.25, 30, 30);
+      const geometry2 = new THREE.SphereGeometry(0.2, 30, 30);
       const material2 = new THREE.MeshBasicMaterial({color: 0x163E66}); 
       const sphere2 = new THREE.Mesh( geometry2, material2);
 

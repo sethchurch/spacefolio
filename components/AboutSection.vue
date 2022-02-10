@@ -71,6 +71,7 @@
       list-style-type: none;
       display: flex;
       width: 100%;
+      min-width: 100%;
       gap: 1rem;
       padding: 0;
       flex-wrap: wrap;
@@ -152,7 +153,7 @@ export default {
       loadingCards.forEach((el, i) => {
         setTimeout(() => {
           el.classList.remove('skill-card--loading');
-        }, (150 * i) + 200);
+        }, (100 * i) + 200);
       });
     }
   },
