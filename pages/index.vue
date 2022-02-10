@@ -213,6 +213,10 @@ export default {
           const path = new CustomCircleCurve(radius);
           const geometry = new THREE.TubeGeometry( path, 96, 0.015, 8, false );
           const material = new THREE.MeshBasicMaterial({color: 0x1F3B58}); 
+        
+          material.transparent = true;
+          material.opacity = 1 / i;
+
           const ring = new THREE.Mesh( geometry, material);
 
           ringRadArray.push(radius);
@@ -266,6 +270,7 @@ export default {
           const LERP_SPEED = (0.005 * rings.length) / ((i + 1) * 2);
 
           ring.position.lerp(new THREE.Vector3(ring.x, ring.y, mouse.y + bounce), LERP_SPEED);
+          // object.materials[0].opacity = 1 + Math.sin(new Date().getTime() * .0025);//or any other value you like
           if(i == 0) {
             sphere2.position.lerp(new THREE.Vector3(Math.cos(time / 1.5) * ringsRadius[i], Math.sin(time / 1.5) * ringsRadius[i], mouse.y + bounce), LERP_SPEED);
           }

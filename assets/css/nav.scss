@@ -166,8 +166,8 @@
         &__logo {
             flex: 20%;
             position: relative;
-            width: initial;
             width: 20%;
+            max-height: 10rem;
             & img {
                 padding: 0.5rem;
             }
