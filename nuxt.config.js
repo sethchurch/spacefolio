@@ -9,7 +9,7 @@ export default {
       { hid: 'og:description', name: 'og:description', content: 'Hey There! I\'m a Creative Software Developer with a passion for designing and building applications. Looking to collab? Check out my portfolio and get in touch.' },
       { hid: 'og:title', name: 'og:title', content: 'Seth Church\'s Portfolio Website' },
       { hid: 'og:site_name', name: 'og:site_name', content: 'Seth Church | Software Developer' },
-      { hid: 'og:image', name: 'og:image', content: '//sethchurch.dev/thumb_img.webp' },
+      { hid: 'og:image', property:'og:image', name: 'image', content: '//sethchurch.dev/thumb_img.webp' },
       { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: 'Seth Church | Software Developer' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'robots', content: 'index, follow'}
