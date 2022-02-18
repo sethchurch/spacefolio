@@ -87,6 +87,8 @@
             bottom: 0;
             width: 4.5em;
             height: 0.35em;
+            left: 50%;
+            transform: translateX(-50%);
             background: #262B30;
             z-index: -1;
         }

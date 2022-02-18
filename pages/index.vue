@@ -302,23 +302,36 @@ export default {
       }
     },
     
-    getJobTitle() {
+    animateJobTitle() {
       const index = Math.floor(Math.random() * this.titleList.length);
-      this.jobTitle = this.titleList[index];
+
+      // get title from list but dont include already selected title
+      let selectedTitle = this.titleList.filter(el => el !== this.jobTitle)[index].split('');
+
+      // set title to first character to keep up content spacing
+      this.jobTitle = selectedTitle.shift();
+
+      for(let i = 1; i < selectedTitle.length + 1; i++) {
+        let interval = 50 * i;
+        setTimeout(() => {
+          this.jobTitle += selectedTitle.shift();
+        }, interval);
+      }
+
     }
   },
   mounted: function() {
     // this.generateScene1();
     this.generateScene2();
     // this.updateMouse();
-    // let jobTitalInterval = setInterval(() => {
-    //   this.getJobTitle()
-    // }, 30000)
+    let jobTitalInterval = setInterval(() => {
+      this.animateJobTitle()
+    }, 5000)
   },
   data() {
     return {
       jobTitle: 'Web Developer',
-      titleList: ['Software Engineer', 'Web Developer', 'Creative Developer', 'Software Developer', 'D&D Enthusiast']
+      titleList: ['Software Engineer', 'Front-End Developer', 'Web Developer', 'Creative Developer', 'Software Developer', 'D&D Enthusiast', 'Character Illustrator']
     }
   },
   head() {
