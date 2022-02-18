@@ -303,7 +303,7 @@ export default {
     },
     
     animateJobTitle() {
-      const index = Math.floor(Math.random() * this.titleList.length);
+      const index = Math.floor(Math.random() * this.titleList.length - 1);
 
       // get title from list but dont include already selected title
       let selectedTitle = this.titleList.filter(el => el !== this.jobTitle)[index].split('');
