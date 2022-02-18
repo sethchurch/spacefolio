@@ -1,19 +1,22 @@
 <template>
-    <div class="portfolio-display" :style="{ 'background-image': 'url(' + imgSrc + ')' }">
-
-        <img :src="imgSrc" :alt="imgAlt" class="portfolio-display__img" />
-
+    <div class="portfolio-display">
 
         <div class="portfolio-display__wrapper">
-            <h3  class="portfolio-display__title">{{ title }}</h3>
+            <div class="portfolio-display__header">
+                <h3  class="portfolio-display__title">{{ title }}</h3>
 
-            <div class="portfolio-display__skills">
-                <span class="portfolio-display__skill-pill" v-for="skill in skills">{{ skill }}</span>
+                <div class="portfolio-display__skills">
+                    <span class="portfolio-display__skill-pill" v-for="skill in skills">{{ skill }}</span>
+                </div>
+
             </div>
-
             <p class="portfolio-display__desc">{{ desc }}</p>
 
-            <a target="_blank" :href="gitLink"><button class="portfolio-display__btn btn--orange btn--rounded">Learn More</button></a>
+            <a target="_blank" :href="gitLink"><button class="portfolio-display__btn btn--orange btn--rounded">View Repo</button></a>
+        </div>
+
+        <div class="portfolio-display__img-wrapper">
+            <img :src="imgSrc" :alt="imgAlt" class="portfolio-display__img" />
         </div>
 
     </div>
@@ -37,25 +40,39 @@ export default {
     @import '~/assets/css/keyframes';
 
     .portfolio-display {
+        background: #1f2329;
         display: flex;
-        justify-self: center;
-        align-items: center;
-        gap: 3em;
-        position: relative;
-        background-size: cover;
-        background-position: center;
-        font-size: inherit;
+        padding: 3rem 2rem;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: stretch;
+
+        &__header {
+            display: flex;
+            gap: 1rem;
+        }
+
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+        }
         
-        &__img {
-            width: 100%;
-            z-index: -1;
-            display: block;
+        &__img-wrapper {
+            height: 100%;
+            flex: 30%;
+            border-radius: 0.25rem;
+            overflow: hidden;
+            flex-shrink: 0;
+            flex-grow: 0;
+            max-height: 6rem;
+            max-width: 9rem
         }
 
         &__title {
             color: $orange;
-            font-size: 1.5em;
+            font-size: 2em;
             font-weight: 700;
+            margin: 0;
         }
 
         &__desc {
@@ -63,43 +80,81 @@ export default {
             margin-bottom: 1.25em;
         }
 
-        &__wrapper {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            background: adjust-color($color: $blue, $alpha: -0.95);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            transition: background 0.5s ease;
-            padding: 1em;
-            & > * {
-                opacity: 0;
-                transition: opacity 0.5s ease;
-            }
-            &:hover {
-                background: adjust-color($color: $darkBlue, $alpha: -0.15);
-                & > * {
-                    opacity: 1;
-                }
-            }
+        &__img {
+            max-width: 100%;
+        }
+        
+        &__skill-pill {
+            padding: 0.25em 1em;
+            border: 3px $darkBlue solid;
+            border-radius: 100em;
+            font-size: 1em;
         }
 
-        &__skill-pill {
-            padding: 0 0.3em;
-            font-size: 0.95em;
-            &:not(:last-child) {
-                border-right: 0.15em solid $orange;
-            }
+        &__skills {
+            display: flex;
+            gap: 0.5rem;
+            align-self: flex-end;
+            margin: 0;
         }
 
         &__btn {
             border: 0;
             padding: 0.5em 2em;
             font-size: 1em;
+            align-self: flex-end;
         }
+    }
+
+
+    @media (max-width: 1000px) {
+
+        .portfolio-display {
+
+            &__header {
+                flex-direction: column;
+            }
+
+            &__skills {
+                align-self: flex-start;
+            }
+        }
+
+    }
+
+    @media (max-width: 700px) {
+
+        .portfolio-display {
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            font-size: 0.9rem;
+            gap: 1em;
+
+            &__title {
+                font-size: 1.5em;
+            }
+
+            &__img-wrapper {
+                max-height: 10rem;
+                max-width: 100%;
+            }
+
+            &__skills {
+                margin: 0 auto;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            &__skill-pill {
+                padding: 0.25em 1em;
+                border: 3px $darkBlue solid;
+                border-radius: 100em;
+                font-size: 0.9em;
+            }
+        }
+
     }
 </style>
