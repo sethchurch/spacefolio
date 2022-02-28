@@ -16,7 +16,7 @@
                 <fa :icon="['fab', 'linkedin-in']" />
             </a>
 
-            <a target="_blank" href="https://github.com/iEnder">
+            <a target="_blank" href="https://github.com/sethchurch">
                 <fa :icon="['fab', 'github']" />
             </a>
 
