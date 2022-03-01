@@ -12,10 +12,6 @@
         </div>
 
         <div class="nav__social-links">
-            <a target="_blank" href="https://www.linkedin.com/in/gschurch/">
-                <fa :icon="['fab', 'linkedin-in']" />
-            </a>
-
             <a target="_blank" href="https://github.com/sethchurch">
                 <fa :icon="['fab', 'github']" />
             </a>
