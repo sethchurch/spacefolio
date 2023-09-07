@@ -1,11 +1,10 @@
 <template>
     <div class="about">
       <SectionBody class="about__body" title="About Me">
-
         <!-- About Text -->
 
         <p>Hi, I'm Seth Church, a dedicated software engineer based in the United States.</p>
-
+      
         <p>
           As a web developer with a strong passion for creating intuitive, fast,
           and accessible applications. My approach? Dive deep, beyond just the
