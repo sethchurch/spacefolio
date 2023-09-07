@@ -3,7 +3,7 @@
       <SectionBody class="about__body" title="About Me">
         <!-- About Text -->
 
-        <p>Hi, I'm Seth Church, a dedicated software engineer based in the United States.</p>
+        <p>Hi, I'm Seth Church, a dedicated software engineer based in the United States. Currently working as a Full Stack developer.</p>
       
         <p>
           As a web developer with a strong passion for creating intuitive, fast,
@@ -14,7 +14,7 @@
           compelling.
         </p>
 
-        <p>A Glimpse of My Technical Toolkit:</p>
+        <p>A Glimpse of My Toolkit</p>
 
         <!-- Skills Divider -->
 
@@ -122,18 +122,23 @@ export default {
     return {
       skills: [
         { icon: 'devicon-javascript-plain', name: 'Javascript' },
-        { icon: 'devicon-python-plain', name: 'Python' },
-        { icon: 'devicon-csharp-plain', name: 'C#' },
-        { icon: 'devicon-graphql-plain', name: 'GraphQL' },
+        { icon: 'devicon-typescript-plain', name: 'Typescript'},
+        { icon: 'devicon-docker-plain', name: 'Docker'},
         { icon: 'devicon-react-plain', name: 'React' },
-        { icon: 'devicon-vuejs-plain', name: 'Vue.js' },
+        { icon: 'devicon-jest-plain', name: 'Jest' },
+        { icon: 'devicon-mocha-plain', name: 'Mocha' },
+        { icon: 'devicon-csharp-plain', name: 'C#' },
+        { icon: 'devicon-nodejs-plain', name: 'Node.js' },
+        { icon: 'devicon-express-original', name: 'Express.js' },
+        { icon: 'devicon-mysql-plain', name: 'SQL' },
         { icon: 'devicon-html5-plain', name: 'HTML5' },
         { icon: 'devicon-css3-plain', name: 'CSS3' },
         { icon: 'devicon-sass-plain', name: 'Sass' },
+        { icon: 'devicon-vuejs-plain', name: 'Vue.js' },
+        { icon: 'devicon-python-plain', name: 'Python' },
         { icon: 'devicon-git-plain', name: 'Git' },
-        { icon: 'devicon-mysql-plain', name: 'MySQL' },
+        { icon: 'devicon-graphql-plain', name: 'GraphQL' },
         { icon: 'devicon-mongodb-plain', name: 'MongoDB' },
-        { icon: 'devicon-nodejs-plain', name: 'Node.js' },
         { icon: 'devicon-photoshop-plain', name: 'Photoshop' },
         { icon: 'devicon-illustrator-plain', name: 'Illustrator' },
         { icon: 'devicon-xd-plain', name: 'Adobe XD' },
