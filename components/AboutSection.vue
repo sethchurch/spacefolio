@@ -14,7 +14,7 @@
           compelling.
         </p>
 
-        <p>A Glimpse of My Toolkit</p>
+        <p>My Toolkit:</p>
 
         <!-- Skills Divider -->
 

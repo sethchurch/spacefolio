@@ -93,101 +93,16 @@ import * as THREE from 'three';
 export default {
   name: 'IndexPage',
   methods: {
-    // THREE.JS Landing Page Scenes
-    generateScene1() {
+    // THREE.JS Landing Page Scenes 
+    generateOrbitalScene() {
       let mouse = new THREE.Vector2();
-
-      document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-      function onDocumentMouseMove(event) {
-          event.preventDefault();
-          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-      }
-
-      const canvas = document.querySelector('#landingCanvas');
-      const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
-
-      renderer.setClearColor(0x0b0c0d); 
-
-      const fov = 75;
-      const aspect = 2; 
-      const near = 0.1;
-      const far = 100;
-      const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-
-      camera.position.z = 5.5;
-      camera.position.x = -2;
-
-      const scene = new THREE.Scene();
-
-      const geometry = new THREE.OctahedronGeometry(2.75, 2);
-      const geometry2 = new THREE.OctahedronGeometry(1.5, 3);
-
-      const material = new THREE.MeshBasicMaterial({color: 0xd88b0f, wireframe: true}); 
-      const material2 = new THREE.MeshBasicMaterial({color: 0x111111}); 
-      
-
-      const sphere = new THREE.Mesh(geometry, material);
-      const sphere2 = new THREE.Mesh(geometry2, material2);
-
-      const color = 0xFFFFFF;
-      const intensity = 1;
-      const light = new THREE.DirectionalLight(color, intensity);
-      light.position.set(-1, 2, 4);
-      scene.add(light);
-
-      scene.add(sphere);
-      scene.add(sphere2);
-
-      renderer.setPixelRatio(window.devicePixelRatio * 5);
-      renderer.render(scene, camera);
-    
-      function render(time) {
-        time *= 0.001;
-      
-        sphere.rotation.x = time / 3;
-        sphere.rotation.y = time / 3;
-
-        sphere2.rotation.x = -time / 2;
-        sphere2.rotation.y = -time / 2;
-
-
-        sphere.position.lerp(new THREE.Vector3(mouse.x, mouse.y + Math.sin(time * 2) * 0.75, sphere2.z), 0.01);
-        sphere2.position.lerp(new THREE.Vector3(mouse.x, mouse.y + Math.sin(time * 2) * 0.5, sphere2.z), 0.2)
-
-        camera.aspect = canvas.clientWidth / canvas.clientHeight;
-        camera.updateProjectionMatrix();
-      
-        renderer.render(scene, camera);
-      
-        requestAnimationFrame(render);
-      }
-      requestAnimationFrame(render);
-    },
-    generateScene2() {
-      let mouse = new THREE.Vector2();
-
-      document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-      function onDocumentMouseMove(event) {
-          event.preventDefault();
-          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-      }
-
-      const canvas = document.querySelector('#landingCanvas');
-      const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
-
-      renderer.setClearColor(0x0b0c0d); 
-      const camera = new THREE.PerspectiveCamera( 75, 2, 0.1, 100);
-
-      camera.position.set(2, -3, 5)
-
-      const scene = new THREE.Scene();
+      document.addEventListener('mousemove', (event) => {
+        event.preventDefault();
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      }, false);
 
       class CustomCircleCurve extends THREE.Curve {
-
         constructor( scale = 1 ) {
           super();
           this.scale = scale;
@@ -199,7 +114,6 @@ export default {
           const tz = 0;
           return optionalTarget.set( tx, ty, tz ).multiplyScalar( this.scale );
         }
-
       }
 
       // Int -> THREE.Mesh[] Int[]
@@ -228,80 +142,71 @@ export default {
         return [ringArray, ringRadArray];
       }
 
+      const createSphere = (radius, color) => {
+        const geometry = new THREE.SphereGeometry(radius, 30, 30);
+        const material = new THREE.MeshBasicMaterial({color: color}); 
+        const sphere = new THREE.Mesh( geometry, material);
+        return sphere;
+      }
+
+      const canvas = document.querySelector('#landingCanvas');
+      const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera( 75, 2, 0.1, 100);
+
+      renderer.setClearColor(0x0b0c0d); 
+      camera.position.set(2, -3, 5)
+
       const [rings, ringsRadius] = getRingList(15);
       
-      const geometry = new THREE.SphereGeometry(1.4, 30, 30);
-      const material = new THREE.MeshBasicMaterial({color: 0xd88b0f}); 
-      const sphere = new THREE.Mesh( geometry, material);
+      const sunMesh = createSphere(1.4, 0xd88b0f);
+      const planetMesh = createSphere(0.2, 0x163E66);
 
-      const geometry2 = new THREE.SphereGeometry(0.2, 30, 30);
-      const material2 = new THREE.MeshBasicMaterial({color: 0x163E66}); 
-      const sphere2 = new THREE.Mesh( geometry2, material2);
+      scene.add(sunMesh);
+      scene.add(planetMesh);
 
-      const light = new THREE.DirectionalLight( 0xFFFFFF, 1);
-      light.position.set(-2, 1, 5);
-      scene.add(light);
-
-      scene.add(sphere);
-      scene.add(sphere2);
-
-      rings.forEach(ring => {
+      for (let ring of rings) {
         scene.add(ring);
-      });
+      }
       
       renderer.setPixelRatio(window.devicePixelRatio * 4);
       renderer.render(scene, camera);
-
-      let offsetX = 1;
-      let offsetY = -4;
-    
+      
       // start planet in correct position
-      sphere2.position.lerp(new THREE.Vector3(Math.cos(0)* ringsRadius[0], Math.sin(0) * ringsRadius[0], mouse.y), 1);
+      planetMesh.position.set(Math.cos(0) * ringsRadius[0], Math.sin(0) * ringsRadius[0], 0);
+      
+      const CAM_OFFSET_X = 1;
+      const CAM_OFFSET_Y = -4;
+      const SUN_LERP_SPEED = 0.05;
+      const CAMERA_LERP_SPEED = 0.02;
 
       function render(time) {
         time *= 0.001;
 
-        const bounce = Math.sin(time / 5) / 3;
+        const BOUNCE = Math.sin(time / 5) / 3;
+        const bounceWithMouseOffset = BOUNCE + mouse.y;
 
-        sphere.position.lerp(new THREE.Vector3(sphere.x, sphere.y, mouse.y + bounce), 0.05);
+        sunMesh.position.lerp(new THREE.Vector3(sunMesh.x, sunMesh.y, bounceWithMouseOffset), SUN_LERP_SPEED);
+        camera.position.lerp(new THREE.Vector3(-mouse.x + CAM_OFFSET_X, -bounceWithMouseOffset + CAM_OFFSET_Y, camera.position.z), CAMERA_LERP_SPEED);
 
-        camera.position.lerp(new THREE.Vector3(-mouse.x + offsetX, -mouse.y + bounce + offsetY, camera.position.z), 0.02);
+        for (let [ringIndex, ring] of rings.entries()) {
+          const ORBIT_LERP_SPEED = (0.005 * rings.length) / ((ringIndex + 1) * 2);
+          ring.position.lerp(new THREE.Vector3(ring.x, ring.y, bounceWithMouseOffset), ORBIT_LERP_SPEED);
 
+          if(ringIndex != 0) continue;
+          const effectiveRadius = ringsRadius[ringIndex] * 1.085;
+          planetMesh.position.lerp(new THREE.Vector3(Math.cos(time) * effectiveRadius, Math.sin(time) * effectiveRadius, bounceWithMouseOffset), ORBIT_LERP_SPEED);
+        }
 
-        rings.forEach((ring, i) => {
-          const LERP_SPEED = (0.005 * rings.length) / ((i + 1) * 2);
-
-          ring.position.lerp(new THREE.Vector3(ring.x, ring.y, mouse.y + bounce), LERP_SPEED);
-          // object.materials[0].opacity = 1 + Math.sin(new Date().getTime() * .0025);//or any other value you like
-          if(i == 0) {
-            sphere2.position.lerp(new THREE.Vector3(Math.cos(time / 1.5) * ringsRadius[i], Math.sin(time / 1.5) * ringsRadius[i], mouse.y + bounce), LERP_SPEED);
-          }
-        });
-
-
-        camera.lookAt(new THREE.Vector3(sphere.position.x - 2, sphere.position.y + 1, sphere.position.z));
-        
+        camera.lookAt(new THREE.Vector3(sunMesh.position.x - 2, sunMesh.position.y + 1, sunMesh.position.z));
         camera.aspect = canvas.clientWidth / canvas.clientHeight;
         camera.updateProjectionMatrix();
-
         renderer.render(scene, camera);
         requestAnimationFrame(render);
       }
+      
       requestAnimationFrame(render);
     },
-
-    // Page Functions
-    updateMouse() {
-      const mouseEl = document.querySelector('#mouseEl');
-      document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-      function onDocumentMouseMove(event) {
-          event.preventDefault();
-          mouseEl.style.left = `${event.pageX}px`;
-          mouseEl.style.top = `${event.pageY}px`;
-      }
-    },
-    
     animateJobTitle() {
       const index = Math.floor(Math.random() * this.titleList.length - 1);
 
@@ -311,6 +216,7 @@ export default {
       // set title to first character to keep up content spacing
       this.jobTitle = selectedTitle.shift();
 
+      // animate title
       for(let i = 1; i < selectedTitle.length + 1; i++) {
         let interval = 50 * i;
         setTimeout(() => {
@@ -321,17 +227,13 @@ export default {
     }
   },
   mounted: function() {
-    // this.generateScene1();
-    this.generateScene2();
-    // this.updateMouse();
-    let jobTitalInterval = setInterval(() => {
-      this.animateJobTitle()
-    }, 5000)
+    this.generateOrbitalScene();
+    setInterval(() => this.animateJobTitle(), 5000)
   },
   data() {
     return {
       jobTitle: 'Web Developer',
-      titleList: ['Software Engineer', 'Front-End Developer', 'Web Developer', 'Creative Developer', 'Software Developer', 'D&D Enthusiast', 'Character Illustrator']
+      titleList: ['Software Engineer', 'Front-End Developer', 'Web Developer', 'Creative Developer', 'Software Developer', 'D&D Enthusiast', 'Character Illustrator', 'Full Stack Developer']
     }
   },
   head() {
