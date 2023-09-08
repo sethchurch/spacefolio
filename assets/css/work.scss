@@ -11,8 +11,10 @@
 
     &__ship {
         width: 8rem;
-        position: fixed;
+        position: absolute;
+        top: 0;
         z-index: 3;
+        transition: top 1.5s cubic-bezier(.25, .35, .3, 1);
     }
 
     &__portfolio-container {

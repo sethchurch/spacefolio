@@ -73,7 +73,37 @@ export default {
       },
     ],
   },
-  
+  methods: {
+        bindShipToScrollOffset() {
+          const ship = document.querySelector(".work__ship");
+          const trail = document.querySelector(".work__trail");
+
+          let extractPercentFromCSS = (stringProp) => {
+            try {
+              return parseInt(stringProp.replace("%", ""));
+            } catch (e) {
+              return 0;
+            }
+          }
+
+          window.addEventListener("scroll", () => {
+            let offset = window.scrollY / (document.body.offsetHeight - window.innerHeight);
+            
+            // if current top is greater than offset rotate ship
+            if (extractPercentFromCSS(ship.style.top) > offset * 90) {
+              ship.style.transform = `rotate(${180}deg)`;
+            } else {
+              ship.style.transform = `rotate(${0}deg)`;
+            }
+
+            // set top of ship to offset
+            ship.style.top = `${offset * 90}%`;
+          });
+        }
+  },
+  mounted: function() {
+      this.bindShipToScrollOffset();
+  }
 };
 </script>
 
