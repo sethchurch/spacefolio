@@ -76,9 +76,8 @@ export default {
   methods: {
         bindShipToScrollOffset() {
           const ship = document.querySelector(".work__ship");
-          const trail = document.querySelector(".work__trail");
-
-          let extractPercentFromCSS = (stringProp) => {
+          
+          const extractPercentFromCSS = (stringProp) => {
             try {
               return parseInt(stringProp.replace("%", ""));
             } catch (e) {
@@ -87,16 +86,10 @@ export default {
           }
 
           window.addEventListener("scroll", () => {
-            let offset = window.scrollY / (document.body.offsetHeight - window.innerHeight);
-            
-            // if current top is greater than offset rotate ship
-            if (extractPercentFromCSS(ship.style.top) > offset * 90) {
-              ship.style.transform = `rotate(${180}deg)`;
-            } else {
-              ship.style.transform = `rotate(${0}deg)`;
-            }
-
-            // set top of ship to offset
+            const offset = window.scrollY / (document.body.offsetHeight - window.innerHeight);
+            // rotate ship according to scroll direction and apply offset
+            const movingDownFlag = extractPercentFromCSS(ship.style.top) > offset * 90;
+            ship.style.transform = `rotate(${movingDownFlag ? 180 : 0}deg)`;
             ship.style.top = `${offset * 90}%`;
           });
         }
