@@ -6,9 +6,9 @@
         <p>Hi, I'm Seth Church, a dedicated software engineer based in the United States. Currently working as a Full Stack developer.</p>
       
         <p>
-          As a web developer with a strong passion for creating intuitive, fast,
-          and accessible applications. My approach? Dive deep, beyond just the
-          surface of technologies, to ensure I'm leveraging their full potential.
+          As a web developer with a strong passion for creating intuitive, fast, 
+          and accessible applications, my approach development comes with a unique strategy. 
+          By diving deep, beyond the surface of technologies, I ensure I am leveraging their full potential.
           With a foundation in both development and design, I'm dedicated to
           building experiences that are not only functional but also visually
           compelling.
