@@ -10,13 +10,12 @@
 
         <div class="portfolio-planet__wrapper">
             <h3  class="portfolio-planet__title">{{ title }}</h3>
-
+            
             <div class="portfolio-planet__skills">
                 <span class="portfolio-planet__skill-pill" v-for="skill in skills">{{ skill }}</span>
             </div>
 
             <p class="portfolio-planet__desc">{{ desc }}</p>
-
             <a target="_blank" :href="gitLink"><button class="portfolio-planet__btn btn--blue btn--rounded">View Project</button></a>
         </div>
 
@@ -38,11 +37,11 @@ export default {
     methods: {
         addAnimationObserver() {
             const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
+                for (const entry of entries) {
+                    if (!entry.isIntersecting) {
                         entry.target.classList.add('portfolio-planet--animated');
                     }
-                });
+                }
             });
 
             observer.observe(this.$el);

@@ -145,27 +145,23 @@ export default {
       ]
     }
   },
-
   methods: {
     setupSkills() {
       const cards = document.querySelectorAll('.skill-card');
       cards.forEach(el => el.classList.add('skill-card--loading'));
     },
-    
     addSkillsObserver() {
       const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
+          for (const entry of entries) {
               if (entry.isIntersecting) {
                   this.clearSkills();
               }
-          });
+          };
       });
       observer.observe(this.$el);
     },
-
     clearSkills() {
       const loadingCards = document.querySelectorAll('.skill-card--loading');
-
       loadingCards.forEach((el, i) => {
         setTimeout(() => {
           el.classList.remove('skill-card--loading');
@@ -173,7 +169,6 @@ export default {
       });
     }
   },
-
   mounted() {
    this.setupSkills(); 
    this.addSkillsObserver();

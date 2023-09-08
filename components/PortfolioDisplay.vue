@@ -4,14 +4,12 @@
         <div class="portfolio-display__wrapper">
             <div class="portfolio-display__header">
                 <h3  class="portfolio-display__title">{{ title }}</h3>
-
                 <div class="portfolio-display__skills">
                     <span class="portfolio-display__skill-pill" v-for="skill in skills">{{ skill }}</span>
                 </div>
-
             </div>
+            
             <p class="portfolio-display__desc">{{ desc }}</p>
-
             <a target="_blank" :href="gitLink"><button class="portfolio-display__btn btn--orange btn--rounded">View Repo</button></a>
         </div>
 
