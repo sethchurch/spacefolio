@@ -194,7 +194,7 @@ export default {
           ring.position.lerp(new THREE.Vector3(ring.x, ring.y, bounceWithMouseOffset), ORBIT_LERP_SPEED);
 
           if(ringIndex != 0) continue;
-          const effectiveRadius = ringsRadius[ringIndex] * 1.085;
+          const effectiveRadius = ringsRadius[ringIndex];
           planetMesh.position.lerp(new THREE.Vector3(Math.cos(time) * effectiveRadius, Math.sin(time) * effectiveRadius, bounceWithMouseOffset), ORBIT_LERP_SPEED);
         }
 
