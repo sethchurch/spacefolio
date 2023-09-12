@@ -195,7 +195,8 @@ export default {
 
           if(ringIndex != 0) continue;
           const effectiveRadius = ringsRadius[ringIndex];
-          planetMesh.position.lerp(new THREE.Vector3(Math.cos(time) * effectiveRadius, Math.sin(time) * effectiveRadius, bounceWithMouseOffset), ORBIT_LERP_SPEED);
+          planetMesh.position.set(Math.cos(time) * effectiveRadius, Math.sin(time) * effectiveRadius, planetMesh.position.z);
+          planetMesh.position.lerp(new THREE.Vector3(planetMesh.position.x, planetMesh.position.y, bounceWithMouseOffset), ORBIT_LERP_SPEED);
         }
 
         camera.lookAt(new THREE.Vector3(sunMesh.position.x - 2, sunMesh.position.y + 1, sunMesh.position.z));
