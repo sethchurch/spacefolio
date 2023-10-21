@@ -1,32 +1,30 @@
-# Spacefolio - a space themed personal portfolio
+# 🌌 Spacefolio: A Space-Themed Personal Portfolio
 
-Hey there! This is the repository for my personal portfolio website.  I developed this using Nuxt.JS, Three.JS, and Sass. Feel free to drop by the link below to check out the full site!
+Welcome to the repository for my cosmic personal portfolio website, **Spacefolio**. Dive into the universe of my work, crafted with the power of Nuxt.JS, Three.JS, and Sass. Embark on this interstellar journey by visiting the live site or explore the constellations of code right here!
 
-### *Live site link: https://sethchurch.dev/*
+🚀 **[Visit the Live Site](https://sethchurch.dev/)**
 
+## 📸 Sneak Peek at the site
 
-## Images of Project
----
+| ![Landing Page](https://i.imgur.com/dybMTCS.png) | ![About Mobile](https://i.imgur.com/1HhCpTY.png) | ![Another Landing Page View](https://i.imgur.com/lByIZtW.png) |
+|:------------------------------------------------:|:-------------------------------------------------:|:--------------------------------------------------------------:|
+|                  **Landing Page**                 |                 **About - Mobile**               |              **Landing Page - Portfolio**                  |
 
+## 🛠️ Galactic Build Setup
 
-![landing page](https://i.imgur.com/dybMTCS.png)
-![about mobile](https://i.imgur.com/1HhCpTY.png)
-![landing page](https://i.imgur.com/lByIZtW.png)
-
-
-## Build Setup
+To set up your own version of this universe:
 
 ```bash
-# install dependencies
+# Install the stars and planets (dependencies)
 $ npm install
 
-# serve with hot reload at localhost:3000
+# Serve the universe with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
+# Build the cosmos for production and launch the spaceship (server)
 $ npm run build
 $ npm run start
 
-# generate static project
+# Generate a static snapshot of the universe
 $ npm run generate
 ```
