@@ -5,13 +5,19 @@
       <div class="container">
         <header class="landing__header">
           <h1 class="landing__header-text">
-            Hey, 
-            <br>
-            <span class="landing__name">I'm Seth<span class="text--orange">.</span></span>
-            <br> 
+            Hey,
+            <br />
+            <span class="landing__name"
+              >I'm Seth<span class="text--orange">.</span></span
+            >
+            <br />
             <div class="landing__subheader text--blue">{{ this.jobTitle }}</div>
           </h1>
-          <a class="landing__link" href="/contact"><button class="landing__btn btn--orange btn--outline">Contact Me!</button></a>
+          <a class="landing__link" href="/contact"
+            ><button class="landing__btn btn--orange btn--outline">
+              Contact Me!
+            </button></a
+          >
         </header>
       </div>
       <canvas class="landing__canvas" id="landingCanvas" />
@@ -23,36 +29,53 @@
       <div class="container">
         <div class="landing-portfolio__header">
           <SectionBody class="section__header" title="My Portfolio">
-            <p>Here's a few highlights from projects I've worked on over the years. Interested in seeing more? Check out <a class="section__work-link" href='/work'>my work</a> page.</p>
+            <p>
+              Here's a few highlights from projects I've worked on over the
+              years. Interested in seeing more? Check out
+              <a class="section__work-link" href="/work">my work</a> page.
+            </p>
           </SectionBody>
-          
-          <a href="/work" class="landing-portfolio__work-btn btn--orange btn--outline">See more</a>
+
+          <a
+            href="/work"
+            class="landing-portfolio__work-btn btn--orange btn--outline"
+            >See more</a
+          >
         </div>
 
-        <PortfolioPlanet 
-          :planet="true" 
-          :skills="['Xamarin', 'C#', 'SQLite']" 
-          title="Course Tracker Mobile" 
-          desc="A native android application developed in C# using the Xamarin Forms framework and designed to aid students to track their courses for a term and keep an eye on any upcoming due dates. It utilizes an SQLite database to store and organize user-relevant data and an interface that was written in XAML." 
-          imgSrc="https://camo.githubusercontent.com/02da002b5866c049b8a4e62fcc7bfff13c4635b14dc90d42cfca67ebb35f0964/68747470733a2f2f692e696d6775722e636f6d2f32677659574f332e706e67"  
-          gitLink="https://github.com/sethchurch/Course-Tracker-Mobile" 
+        <PortfolioPlanet
+          :planet="true"
+          :skills="['Next.js', 'React', 'TailwindCSS', 'PostgreSQL', 'OpenAI']"
+          title="Project Spellbook"
+          desc="Project Spellbook is a full-stack web application designed to enhance the Dungeons & Dragons experience by simplifying character creation. Utilizing OpenAI's language model, it offers intelligent feature suggestions, allowing players to generate and store characters with efficiency."
+          imgSrc="/projectSpellbook.png"
+          gitLink="https://project-spellbook.vercel.app/"
         />
 
-        <PortfolioPlanet 
-          :planet="true" 
-          :skills="['Discord.JS', 'Javascript', 'MongoDB']" 
-          title="Torchbearer Armory Bot" 
-          desc="A Discord.JS application designed to maintain and organize inventory for a Dungeon and Dragons community server. Programmed entirely in vanilla javascript and hosted on Netlify with a MongoDB database hosted on mLab." 
-          imgSrc="https://camo.githubusercontent.com/074efab13f1e347846539e047ac1cd10644b19bc611ed15149e7aec0df876312/68747470733a2f2f692e696d6775722e636f6d2f4b4b6f657268622e706e67"  
-          gitLink="https://github.com/sethchurch/discord-armory-5e" 
+        <PortfolioPlanet
+          :planet="true"
+          :skills="['Xamarin', 'C#', 'SQLite']"
+          title="Course Tracker Mobile"
+          desc="Course Tracker Mobile is a C# native Android app developed with Xamarin Forms, providing students with a robust tool for managing their courses and deadlines. Its intuitive interface makes tracking academic responsibilities straightforward and reliable."
+          imgSrc="https://camo.githubusercontent.com/02da002b5866c049b8a4e62fcc7bfff13c4635b14dc90d42cfca67ebb35f0964/68747470733a2f2f692e696d6775722e636f6d2f32677659574f332e706e67"
+          gitLink="https://github.com/sethchurch/Course-Tracker-Mobile"
         />
 
-        <PortfolioPlanet 
+        <PortfolioPlanet
+          :planet="true"
+          :skills="['Discord.JS', 'Javascript', 'MongoDB']"
+          title="Torchbearer Armory Bot"
+          desc="The Torchbearer Armory Bot is a Discord.js application that streamlines inventory management for Dungeons & Dragons community servers. It's programmed to offer organized, user-friendly inventory tracking, enhancing the gameplay experience."
+          imgSrc="https://camo.githubusercontent.com/074efab13f1e347846539e047ac1cd10644b19bc611ed15149e7aec0df876312/68747470733a2f2f692e696d6775722e636f6d2f4b4b6f657268622e706e67"
+          gitLink="https://github.com/sethchurch/discord-armory-5e"
+        />
+
+        <PortfolioPlanet
           :planet="true"
           :skills="['Vue.JS', 'SASS', 'GraphQL']"
-          title="Community Leaderboard" 
-          desc="A Leaderboard web app which was developed to track and display scores from a community game server. Designed in Illustrator and implemented in Vue.JS, it interfaces a GraphQL API to pull and display the latest information about the players." 
-          imgSrc="https://i.imgur.com/vbsylK9.png" 
+          title="Community Leaderboard"
+          desc="The Community Leaderboard web app is engineered to accurately track and display gaming scores from community servers. It integrates seamlessly with game server APIs to provide a real-time competitive landscape for players."
+          imgSrc="https://i.imgur.com/vbsylK9.png"
           gitLink="https://github.com/sethchurch/bb-leaderboards"
         />
       </div>
@@ -62,7 +85,7 @@
     <!-- About Section -->
     <section class="section landing-about">
       <div class="container">
-        <AboutSection class="section__header" />  
+        <AboutSection class="section__header" />
       </div>
     </section>
     <!-- About Section End -->
@@ -71,7 +94,11 @@
     <section class="section landing-contact">
       <div class="container">
         <SectionBody class="section__header" title="Contact Me">
-          <p>If you're looking to collaborate on a project, get in touch about a position, or say hi, feel free to use the form below. I'll be in touch with you as soon as I can.</p>
+          <p>
+            If you're looking to collaborate on a project, get in touch about a
+            position, or say hi, feel free to use the form below. I'll be in
+            touch with you as soon as I can.
+          </p>
         </SectionBody>
 
         <ContactForm class="landing-contact__form" />

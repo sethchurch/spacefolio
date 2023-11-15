@@ -10,11 +10,19 @@
     <div class="work__wrapper">
       <div class="work__trail">
         <div class="work__ship">
-          <img src="/ship.svg" alt="A space ship!">
+          <img src="/ship.svg" alt="A space ship!" />
         </div>
       </div>
-      
+
       <section class="work__portfolio-container">
+        <PortfolioDisplay
+          :skills="['Next.js', 'React', 'TailwindCSS', 'PostgreSQL', 'OpenAI']"
+          title="Project Spellbook"
+          desc="Project Spellbook is a full-stack web application designed to enhance the Dungeons & Dragons experience by simplifying character creation. Utilizing OpenAI's language model, it offers intelligent feature suggestions, allowing players to generate and store characters with efficiency."
+          imgSrc="/projectSpellbook.png"
+          gitLink="https://project-spellbook.vercel.app/"
+        />
+
         <PortfolioDisplay
           :skills="['Xamarin', 'C#', 'SQLite']"
           title="Course Tracker Mobile"
