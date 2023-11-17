@@ -45,7 +45,7 @@
 
         <PortfolioPlanet
           :planet="true"
-          :skills="['Next.js', 'React', 'TailwindCSS', 'PostgreSQL', 'OpenAI']"
+          :skills="['Next.js', 'React', 'TailwindCSS', 'OpenAI']"
           title="Project Spellbook"
           desc="Project Spellbook is a full-stack web application designed to enhance the Dungeons & Dragons experience by simplifying character creation. Utilizing OpenAI's language model, it offers intelligent feature suggestions, allowing players to generate and store characters with efficiency."
           imgSrc="/projectSpellbook.png"
