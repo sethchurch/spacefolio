@@ -57,7 +57,7 @@
           :skills="['Xamarin', 'C#', 'SQLite']"
           title="Course Tracker Mobile"
           desc="Course Tracker Mobile is a C# native Android app developed with Xamarin Forms, providing students with a robust tool for managing their courses and deadlines. Its intuitive interface makes tracking academic responsibilities straightforward and reliable."
-          imgSrc="https://camo.githubusercontent.com/02da002b5866c049b8a4e62fcc7bfff13c4635b14dc90d42cfca67ebb35f0964/68747470733a2f2f692e696d6775722e636f6d2f32677659574f332e706e67"
+          imgSrc="/courseTracker.png"
           gitLink="https://github.com/sethchurch/Course-Tracker-Mobile"
         />
 
@@ -66,7 +66,7 @@
           :skills="['Discord.JS', 'Javascript', 'MongoDB']"
           title="Torchbearer Armory Bot"
           desc="The Torchbearer Armory Bot is a Discord.js application that streamlines inventory management for Dungeons & Dragons community servers. It's programmed to offer organized, user-friendly inventory tracking, enhancing the gameplay experience."
-          imgSrc="https://camo.githubusercontent.com/074efab13f1e347846539e047ac1cd10644b19bc611ed15149e7aec0df876312/68747470733a2f2f692e696d6775722e636f6d2f4b4b6f657268622e706e67"
+          imgSrc="/armory.png"
           gitLink="https://github.com/sethchurch/discord-armory-5e"
         />
 
